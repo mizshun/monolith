@@ -1,0 +1,124 @@
+@charset "utf-8";
+
+//----------------------------------------
+//	COMPASS
+//----------------------------------------
+@import "compass/css3";
+
+//----------------------------------------
+//	設定
+//----------------------------------------
+@import "common/setting";
+
+//----------------------------------------
+//	MIXIN
+//----------------------------------------
+@import "common/mixin";
+
+//----------------------------------------
+//	EXTEND
+//----------------------------------------
+@import "common/extend";
+
+/* ----------------------------------------
+	ページ固有スタイル
+---------------------------------------- */
+
+/*
+ GENERAL STYLE
+---------------------------------------- */
+/* 大見出し設定 */
+.dummyHeading {
+	margin-bottom: $baseSpaceS * 0.75;
+	padding-top: 2px;
+	font-family: $subFontFamily;
+	font-size: 2em; // 28px
+	color: $strongFontColor;
+	letter-spacing: 0.1em;
+	text-align: center;
+	& + p {
+		margin-bottom: $baseSpaceL;
+		font-size: 0.786em; // 11px
+		font-weight: bold;
+		text-align: center;
+		letter-spacing: 0.1em;
+	}
+}
+
+/*
+ opuses
+---------------------------------------- */
+#contents {
+  overflow: hidden;
+	@include contCenter(max, $baseWidth);
+}
+
+.opuses {
+	@extend %cf;
+	h3 {
+		display: none;
+	}
+	ul {
+		@extend %cf;
+		margin-right: -$baseSpaceL;
+	}
+	li {
+		float: left;
+		width: calcCol(4, $baseWidth);
+	}
+	article {
+		margin-right: $baseSpaceL;
+		margin-bottom: $baseSpaceL;
+		@include box-shadow(rgba(0, 0, 0, 0.5) 0 1px 3px);
+		a {
+			display: block;
+			border: 8px solid #ddd;
+			&:hover {
+				border-color: $keyBgColor;
+			}
+		}
+		img {
+			width: calcCol();
+			height: auto;
+		}
+	}
+}
+
+/*
+ メディアクエリ
+---------------------------------------- */
+@include widthQuery(max-width, 959px) {
+	#contents {
+		padding-left: $baseSpaceM;
+		padding-right: $baseSpaceM;
+	}
+}
+
+@include widthQuery(max-width, 767px) {
+	#contents {
+		padding-left: $baseSpaceS;
+		padding-right: $baseSpaceS;
+	}
+	.opuses {
+		ul {
+			margin-right: -$baseSpaceM;
+		}
+		li {
+			width: calcCol(2, $baseWidth);
+		}
+		article {
+			margin-right: $baseSpaceM;
+			margin-bottom: $baseSpaceM;
+			@include box-shadow(rgba(0, 0, 0, 0.3) 0 1px 2px);
+		}
+	}
+}
+
+@include widthQuery(max-width, 479px) {
+	.opuses {
+		li {
+			float: none;
+			width: calcCol();
+		}
+	}
+}

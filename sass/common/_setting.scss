@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+// -------------------------------
+// パス
+// -------------------------------
+// 画像パス
+$iu: "../img/";
+
+// -------------------------------
+// レイアウト
+// -------------------------------
+$baseWidth: 960px; // ページの横幅
+$baseSpaceS: 8px; // スペース
+$baseSpaceM: 16px; // スペース
+$baseSpaceL: 32px; // スペース
+
+// -------------------------------
+// カラー
+// -------------------------------
+// ベースカラー     :70% / 100%
+$baseBgColor: #e9e9e9;
+// メインカラー     :25% / 100%
+$subBgColor: #111;
+// アクセントカラー : 5% / 100%
+$keyBgColor: #f8de16; // ゴールド
+
+// -------------------------------
+// フォント
+// -------------------------------
+// 基本フォントファミリー
+// $baseFontFamily: "ヒラギノ角ゴ Pro W3", Meiryo, "メイリオ", sans-serif;
+$baseFontFamily: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+// サブフォントファミリー
+$subFontFamily: "DigitaldreamFatNarrowRegular", sans-serif;
+// ウェブアイコンファミリー
+$iconFontFamily: "monolith", sans-serif;
+// ラベルファミリー
+$labelFontFamily: impact, arial, sans-serif;
+// フォントサイズ
+$baseFontSize: 14px;
+// フォントカラー
+$baseFontColor: #4a4a4a;
+// 見出しフォントカラー
+$strongFontColor: #111;
+// アクセントフォントカラー
+$keyFontColor: #b12b16;
+// 行間
+$baseLineHeight: 1.8;
+
+// リンク
+$baseLink : $strongFontColor; // リンクカラー
+$baseLinkV: $strongFontColor; // 同ヴィジテッド
+$baseLinkH: $strongFontColor; // 同ホバー
+$baseLinkA: $strongFontColor; // 同アクティブ
+
+// -------------------------------
+// HACK
+// -------------------------------
+$ie6: "* html";
+$ie7: "*+html";

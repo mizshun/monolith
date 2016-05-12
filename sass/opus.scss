@@ -1,0 +1,305 @@
+@charset "utf-8";
+
+//----------------------------------------
+//	COMPASS
+//----------------------------------------
+@import "compass/css3";
+
+//----------------------------------------
+//	設定
+//----------------------------------------
+@import "common/setting";
+
+//----------------------------------------
+//	MIXIN
+//----------------------------------------
+@import "common/mixin";
+
+//----------------------------------------
+//	EXTEND
+//----------------------------------------
+@import "common/extend";
+
+/* ----------------------------------------
+	ページ固有スタイル
+---------------------------------------- */
+
+/*
+ GENERAL STYLE
+---------------------------------------- */
+h2 {
+	margin-bottom: $baseSpaceS * 0.75;
+	padding-top: 2px;
+	text-align: center;
+	& ~ p {
+		margin-bottom: $baseSpaceL;
+		font-size: 0.786em; // 11px
+		font-weight: bold;
+		text-align: center;
+		letter-spacing: 0.1em;
+	}
+}
+
+h3 {
+	margin-bottom: $baseSpaceM;
+}
+
+#contents {
+	overflow: hidden;
+	@include contCenter(max, $baseWidth);
+	h2 {
+		& + p {
+			margin-bottom: $baseSpaceS;
+		}
+	}
+}
+
+/*
+ 作品個別
+---------------------------------------- */
+
+/* 作品情報 */
+.opus-info {
+	margin-bottom: $baseSpaceL;
+	> div {
+		@extend %cf;
+		margin-right: -$baseSpaceL;
+	}
+}
+
+.opus-image {
+	float: left;
+	width: calcCol(3, $baseWidth) * 2;
+	height: auto;
+	span {
+		display: block;
+		margin-right: $baseSpaceL;
+		border: 8px solid #ddd;
+		// border: 8px solid #e9d9a7;
+		@include box-shadow(rgba(0, 0, 0, 0.5) 0 1px 3px);
+	}
+	img {
+		width: calcCol();
+		height: auto;
+	}
+}
+
+.opus-desc {
+	float: left;
+	width: calcCol(3, $baseWidth) * 1;
+	height: auto;
+	div {
+		margin-right: $baseSpaceL;
+	}
+	p,
+	ul {
+	text-align: justify;
+	line-height: $baseLineHeight;
+	}
+	p {
+		margin-bottom: $baseSpaceM;
+	}
+}
+
+/* ピックアップ */
+.pickup {
+	overflow: hidden;
+	margin-bottom: $baseSpaceL;
+	padding: $baseSpaceM;
+	// border: $baseSpaceS solid #ddd;
+	background: #fff;
+	background: rgba(255, 255, 255, 0.42);
+	h3 {
+		text-align: center;
+	}
+}
+.pickup-inner {
+	@extend %cf;
+	margin-right: -$baseSpaceL;
+}
+.pickup-unit {
+	@extend %cf;
+	float: left;
+	width: calcCol(2, $baseWidth);
+	height: auto;
+}
+.pickup-image {
+	float: left;
+	width: calcCol(2, $baseWidth);
+	height: auto;
+	span {
+		display: block;
+		margin-right: $baseSpaceL;
+		border: 8px solid #ddd;
+		// border: 8px solid #e9d9a7;
+		@include box-shadow(rgba(0, 0, 0, 0.5) 0 1px 3px);
+	}
+	img {
+		width: calcCol();
+		height: auto;
+	}
+}
+.pickup-desc {
+	float: left;
+	width: calcCol(2, $baseWidth);
+	height: auto;
+	div {
+		display: block;
+		margin-right: $baseSpaceL;
+	}
+	p {
+		width: calcCol();
+		height: auto;
+		text-align: justify;
+		line-height: $baseLineHeight;
+	}
+}
+
+/*
+ 作品一覧
+---------------------------------------- */
+.opuses {
+	@include contCenter(max, $baseWidth);
+	padding-top: $baseSpaceL;
+	@include hairLine(top, 1, .2);
+	.opuses-inner {
+		// overflow: hidden;
+		padding: $baseSpaceM;
+		background: lighten($subBgColor, 70%);
+		& > div {
+			@extend %cf;
+			// margin-right: -$baseSpaceL;
+			// background: rgba($subBgColor, 0.15);
+		}
+	}
+}
+.opuses-unit {
+	@extend %cf;
+	float: left;
+	width: calcCol(2, $baseWidth);
+	height: auto;
+}
+.opuses-image {
+	float: left;
+	width: calcCol(2, $baseWidth);
+	height: auto;
+	span {
+		display: block;
+		margin-right: $baseSpaceS;
+		border: 8px solid #ddd;
+		@include box-shadow(rgba(#000, 0.5) 0 1px 3px);
+	}
+	img {
+		width: calcCol();
+		height: auto;
+	}
+}
+.opuses-desc {
+	float: left;
+	width: calcCol(2, $baseWidth);
+	height: auto;
+	div {
+		// margin-right: $baseSpaceL;
+	}
+	p {
+		width: calcCol();
+		height: auto;
+		color: #fff;
+		font-size: 0.857em;
+		text-align: justify;
+		line-height: 1.5;
+	}
+}
+
+/*
+ メディアクエリ
+---------------------------------------- */
+@include widthQuery(max-width, 959px) {
+	#contents {
+		padding-left: $baseSpaceM;
+		padding-right: $baseSpaceM;
+	}
+}
+
+@include widthQuery(max-width, 767px) {
+	#contents {
+		padding-left: $baseSpaceS;
+		padding-right: $baseSpaceS;
+	}
+
+	/* 作品個別 */
+	.opus-info > div {
+		margin-right: -$baseSpaceM;
+	}
+	.opus-image {
+		span {
+			margin-right: $baseSpaceM;
+		}
+	}
+	.opus-desc {
+		div {
+			margin-right: $baseSpaceM;
+		}
+	}
+
+	.pickup-unit {
+		float: none;
+		width: calcCol();
+		margin-bottom: $baseSpaceL;
+	}
+
+	.pickup-inner {
+		margin-right: -$baseSpaceM;
+	}
+	.pickup-image {
+		span {
+			margin-right: $baseSpaceM;
+		}
+	}
+	.pickup-desc {
+		div {
+			margin-right: $baseSpaceM;
+		}
+	}
+}
+
+@include widthQuery(max-width, 479px) {
+	/* 作品個別 */
+	.opus-image {
+		float: none;
+		width: calcCol();
+		margin-bottom: $baseSpaceL;
+	}
+	.opus-desc {
+		float: none;
+		width: calcCol();
+	}
+
+	.pickup-image {
+		float: none;
+		width: calcCol();
+		margin-bottom: $baseSpaceS;
+	}
+	.pickup-desc {
+		float: none;
+		width: calcCol();
+		margin-bottom: $baseSpaceM;
+	}
+
+	/* 作品一覧 */
+	.opuses-unit {
+		float: none;
+		width: calcCol();
+		margin-bottom: $baseSpaceL;
+	}
+	.opuses-image {
+		float: none;
+		width: calcCol();
+		margin-bottom: $baseSpaceS;
+	}
+	.opuses-desc {
+		float: none;
+		width: calcCol();
+		margin-bottom: $baseSpaceM;
+	}
+}

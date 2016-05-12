@@ -1,0 +1,25 @@
+# sass-cache/ ディレクトリのすべてのファイルを無視します
+.sass-cache/
+
+# documents/ ディレクトリのすべてのファイルを無視します
+documents/
+d3/
+
+# 素材ファイルを無視します
+#*.eot
+#*.svg
+#*.ttf
+#*.woff
+#*.jpg
+#*.png
+#*.gif
+#*.ico
+
+# 設定ファイル等を無視します
+# [Sublime Text SFTP Config File: sftp-config.json]
+#*.json
+#*.rb
+#*.txt
+#*.command
+#*.bat
+*.DS_Store

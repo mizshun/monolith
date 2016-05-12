@@ -1,0 +1,629 @@
+@charset "utf-8";
+/* ----------------------------------------
+ CLEAR FIX
+---------------------------------------- */
+#pager ul, .blog-sub-tag, .blog-sub-add ul, .post .post-inner {
+	zoom: 1;
+}
+
+#pager ul:after, .blog-sub-tag:after, .blog-sub-add ul:after, .post .post-inner:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.post .post-meta span {
+	font-weight: bold;
+}
+
+.post .post-meta span {
+	color: #111111;
+}
+
+/* ----------------------------------------
+	ページ固有スタイル
+---------------------------------------- */
+/*
+ GENERAL STYLE
+---------------------------------------- */
+/* 大見出し設定 */
+.dummyHeading {
+	margin-bottom: 6px;
+	font-family: "DigitaldreamFatNarrowRegular", sans-serif;
+	font-size: 2em;
+	color: #111111;
+	letter-spacing: 0.1em;
+	text-align: center;
+}
+
+.dummyHeading + p {
+	margin-bottom: 32px;
+	font-size: 0.786em;
+	font-weight: bold;
+	text-align: center;
+	letter-spacing: 0.1em;
+}
+
+/* 小見出し設定 */
+h2,
+h3 {
+	margin-bottom: 16px;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+h2 {
+	font-size: 1.286em;
+}
+
+#contents {
+	position: relative;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+/*
+ btn-subMenu
+---------------------------------------- */
+#btn-subMenu {
+	display: none;
+	position: fixed;
+	bottom: 16px;
+	right: 4px;
+}
+
+#btn-subMenu a:after {
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
+	content: attr(data-icon);
+	font-family: "monolith", sans-serif;
+	font-size: 2em;
+	color: white;
+	vertical-align: baseline;
+	speak: none;
+	padding: 8px;
+	border: 2px solid #ccc;
+	background: #373737;
+	background: -webkit-linear-gradient(top, #373737, #111111);
+	background: -moz-linear-gradient(top, #373737, #111111);
+	background: -ms-linear-gradient(top, #373737, #111111);
+	background: linear-gradient(to bottom, #373737, #111111);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+#btn-subMenu a:hover {
+	opacity: 0.9;
+}
+
+/*
+ pager
+---------------------------------------- */
+#pager {
+	display: inline;
+	text-align: center;
+}
+
+#pager li {
+	display: inline-block;
+}
+
+#pager a {
+	display: block;
+	padding: 16px;
+	border: 1px solid black;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
+	background: #2d2d2d;
+	background: -webkit-linear-gradient(top, #2d2d2d, #111111);
+	background: -moz-linear-gradient(top, #2d2d2d, #111111);
+	background: -ms-linear-gradient(top, #2d2d2d, #111111);
+	background: linear-gradient(to bottom, #2d2d2d, #111111);
+	-webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 6px rgba(0, 0, 0, 0.45);
+	-moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 6px rgba(0, 0, 0, 0.45);
+	box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 6px rgba(0, 0, 0, 0.45);
+	font-family: impact, arial, sans-serif;
+	font-size: 1em;
+	color: white;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	text-align: center;
+	text-shadow: -1px -1px 0 black;
+	text-transform: uppercase;
+}
+
+#pager a:hover {
+	opacity: 0.9;
+}
+
+#pager a:active {
+	-webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 3px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 3px rgba(0, 0, 0, 0.35);
+	box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 3px rgba(0, 0, 0, 0.35);
+}
+
+@media only screen and (max-width: 479px){
+  #pager a {
+	padding: 16px 8px;
+}
+}
+/*
+ blog
+---------------------------------------- */
+.blog {
+	overflow: hidden;
+	max-width: 960px;
+	margin: 0 auto;
+	margin-bottom: 32px;
+	min-height: 480px;
+}
+
+.blog-inner {
+	position: relative;
+	-webkit-transition: left ease-in 0.2s;
+	-moz-transition: left ease-in 0.2s;
+	-o-transition: left ease-in 0.2s;
+	transition: left ease-in 0.2s;
+}
+
+/* メインコンテンツ */
+.blog-main {
+	width: 100%;
+}
+
+.blog-main-inner {
+	margin-right: 248px;
+}
+
+/* サブコンテンツ */
+.blog-sub {
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 216px;
+}
+
+.blog-sub h3:before {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	margin-right: 8px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	background: #111111;
+	line-height: 40px;
+	text-align: center;
+	content: attr(data-icon);
+	font-family: "monolith", sans-serif;
+	font-size: 1.286em;
+	color: white;
+	vertical-align: baseline;
+	speak: none;
+}
+
+.blog-sub > ul > li {
+	margin-bottom: 32px;
+}
+
+/* カテゴリー, タグ */
+.blog-sub-category li {
+	width: 100%;
+}
+
+.blog-sub-category a {
+	display: block;
+	margin-bottom: 8px;
+	padding: 8px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+	background: #111111;
+	font-size: 0.786em;
+	color: #fff;
+	text-align: center;
+}
+
+.blog-sub-tag ul {
+	margin-right: -4px;
+}
+
+.blog-sub-tag li {
+	float: left;
+	width: 50%;
+}
+
+.blog-sub-tag a {
+	display: block;
+	margin-bottom: 8px;
+	margin-right: 4px;
+	padding: 8px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+	background: #111111;
+	font-size: 0.786em;
+	color: #fff;
+	text-align: center;
+}
+
+/* 最新の投稿 */
+.blog-sub-recentposts a {
+	display: block;
+	margin-bottom: 8px;
+	padding: 8px;
+	border-right: 2px solid #f8de16;
+	-webkit-border-radius: 4px 0 0 4px;
+	-moz-border-radius: 4px 0 0 4px;
+	-ms-border-radius: 4px 0 0 4px;
+	-o-border-radius: 4px 0 0 4px;
+	border-radius: 4px 0 0 4px;
+	background: #fff;
+	font-weight: bold;
+	line-height: 1.5;
+	text-align: justify;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+.blog-sub-recentposts a:hover {
+	background: #f8de16;
+}
+
+/* 広告 */
+.blog-sub-add ul {
+	margin-right: -8px;
+}
+
+.blog-sub-add li {
+	float: left;
+	width: 50%;
+}
+
+.blog-sub-add a {
+	display: block;
+	height: 96px;
+	margin-bottom: 8px;
+	margin-right: 8px;
+	border: 1px solid #ccc;
+	background: #ddd;
+}
+
+/* サイトについて */
+.blog-sub-about a {
+	display: block;
+	margin-bottom: 8px;
+	padding: 8px;
+	border-right: 2px solid #f8de16;
+	-webkit-border-radius: 4px 0 0 4px;
+	-moz-border-radius: 4px 0 0 4px;
+	-ms-border-radius: 4px 0 0 4px;
+	-o-border-radius: 4px 0 0 4px;
+	border-radius: 4px 0 0 4px;
+	background: #fff;
+	font-weight: bold;
+	line-height: 1.5;
+}
+
+.blog-sub-about a:hover {
+	background: #f8de16;
+}
+
+/* コンタクト */
+/*
+ 記事
+---------------------------------------- */
+.post {
+	position: relative;
+	min-height: 216px;
+	margin-bottom: 32px;
+}
+
+.post .post-thumb {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.post .post-thumb:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 16px solid rgba(202, 161, 29, 0.36);
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.post .post-thumb:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 24px solid rgba(245, 196, 40, 0.36);
+	-webkit-border-radius: 44%;
+	-moz-border-radius: 44%;
+	-ms-border-radius: 44%;
+	-o-border-radius: 44%;
+	border-radius: 44%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.post .post-thumb a {
+	display: block;
+	width: 216px;
+	height: 216px;
+}
+
+.post .post-thumb a:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 4px solid rgba(202, 161, 29, 0.2);
+	-webkit-border-radius: 42% 50%;
+	-moz-border-radius: 42% 50%;
+	-ms-border-radius: 42% 50%;
+	-o-border-radius: 42% 50%;
+	border-radius: 42% 50%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.post .post-thumb a:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 8px solid rgba(202, 161, 29, 0.3);
+	-webkit-border-radius: 46% 42%;
+	-moz-border-radius: 46% 42%;
+	-ms-border-radius: 46% 42%;
+	-o-border-radius: 46% 42%;
+	border-radius: 46% 42%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.post .post-thumb img {
+	width: 100%;
+	height: 100%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.post .post-body {
+	margin-left: 248px;
+	border-left: 1px solid #fff;
+	-webkit-border-radius: 16px 0 0 16px;
+	-moz-border-radius: 16px 0 0 16px;
+	-ms-border-radius: 16px 0 0 16px;
+	-o-border-radius: 16px 0 0 16px;
+	border-radius: 16px 0 0 16px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 1px 0 0 inset;
+	-moz-box-shadow: rgba(0, 0, 0, 0.1) 1px 0 0 inset;
+	box-shadow: rgba(0, 0, 0, 0.1) 1px 0 0 inset;
+}
+
+.post h2 {
+	padding: 16px 32px 16px 32px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	border-right: 2px solid #f8de16;
+	-moz-border-radius-topleft: 16px;
+	-webkit-border-top-left-radius: 16px;
+	border-top-left-radius: 16px;
+	background: #fff;
+	font-family: serif;
+	font-family: meiryo, sans-serif;
+	line-height: 1.5;
+}
+
+.post h2 a {
+	color: #111111;
+}
+
+.post .post-meta {
+	margin: 16px 0 32px;
+	margin-left: 32px;
+	font-size: 0.786em;
+}
+
+.post .post-time,
+.post .post-tag {
+	display: inline;
+}
+
+.post header + p {
+	margin-left: 32px;
+	line-height: 1.8;
+	text-align: justify;
+}
+
+.post .more-link {
+	margin-top: 32px;
+	padding: 8px 16px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	border-right: 2px solid #F0BE21;
+	-moz-border-radius-bottomleft: 16px;
+	-webkit-border-bottom-left-radius: 16px;
+	border-bottom-left-radius: 16px;
+	background: #fff;
+	font-size: 0.786em;
+	text-align: right;
+}
+
+.post .more-link a:after {
+	margin-left: 8px;
+	content: attr(data-icon);
+	font-family: "monolith", sans-serif;
+	font-size: 1em;
+	color: #111111;
+	vertical-align: baseline;
+	speak: none;
+}
+
+/*
+ メディアクエリ
+---------------------------------------- */
+@media only screen and (max-width: 959px){
+  .blog {
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+  .blog-main-inner {
+	margin-right: 0;
+}
+
+	/* サブコンテンツ */
+  .blog-sub {
+	display: none;
+	-webkit-overflow-scrolling: touch;
+	position: fixed;
+	top: 0;
+	right: 0;
+	height: 100%;
+	padding: 0 8px;
+	padding-right: 58px;
+	border-left: 1px solid rgba(255, 255, 255, 0.6);
+	background: #ddd;
+	background: rgba(221, 221, 221, 0.75);
+	-webkit-box-shadow: 1px 1px 1px #333333, 0 0 8px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 1px 1px 1px #333333, 0 0 8px rgba(0, 0, 0, 0.75);
+	box-shadow: 1px 1px 1px #333333, 0 0 8px rgba(0, 0, 0, 0.75);
+	z-index: 8888;
+}
+
+  .blog-sub > ul {
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+  .blog-sub .blog-sub-category {
+	margin-top: 32px;
+}
+
+  #btn-subMenu {
+	display: block;
+	z-index: 9999;
+}
+}
+@media only screen and (max-width: 767px){
+  .blog {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+  .blog-main-inner {
+	margin-right: 0;
+}
+
+  .post {
+	min-height: 0;
+}
+
+  .post .post-thumb:before {
+	border-width: 8px;
+}
+
+  .post .post-thumb:after {
+	border-width: 16px;
+}
+
+  .post .post-thumb a {
+	width: 108px;
+	height: 108px;
+}
+
+  .post .post-body {
+	min-height: 108px;
+	margin-left: 140px;
+	border: none;
+}
+
+  .post h2 {
+	min-height: 76px;
+	margin-bottom: 0;
+	padding: 16px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+}
+
+  .post .post-meta {
+	display: none;
+}
+
+  .post header + p {
+	display: none;
+}
+
+  .post .more-link {
+	display: none;
+}
+
+  #btn-subMenu {
+	right: 8px;
+}
+}
+@media only screen and (max-width: 479px){
+  .post {
+	margin-bottom: 16px;
+}
+
+  .post .post-thumb {
+	display: none;
+}
+
+  .post .post-body {
+	margin-left: 0;
+}
+}
+/*
+ 機能
+---------------------------------------- */
+.blog .open {
+	display: block;
+}

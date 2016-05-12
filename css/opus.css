@@ -1,0 +1,310 @@
+@charset "utf-8";
+/* ----------------------------------------
+ CLEAR FIX
+---------------------------------------- */
+.opus-info > div, .pickup-inner, .pickup-unit, .opuses .opuses-inner > div, .opuses-unit {
+	zoom: 1;
+}
+
+.opus-info > div:after, .pickup-inner:after, .pickup-unit:after, .opuses .opuses-inner > div:after, .opuses-unit:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/* ----------------------------------------
+	ページ固有スタイル
+---------------------------------------- */
+/*
+ GENERAL STYLE
+---------------------------------------- */
+h2 {
+	margin-bottom: 6px;
+	padding-top: 2px;
+	text-align: center;
+}
+
+h2 ~ p {
+	margin-bottom: 32px;
+	font-size: 0.786em;
+	font-weight: bold;
+	text-align: center;
+	letter-spacing: 0.1em;
+}
+
+h3 {
+	margin-bottom: 16px;
+}
+
+#contents {
+	overflow: hidden;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+#contents h2 + p {
+	margin-bottom: 8px;
+}
+
+/*
+ 作品個別
+---------------------------------------- */
+/* 作品情報 */
+.opus-info {
+	margin-bottom: 32px;
+}
+
+.opus-info > div {
+	margin-right: -32px;
+}
+
+.opus-image {
+	float: left;
+	width: 66.66667%;
+	height: auto;
+}
+
+.opus-image span {
+	display: block;
+	margin-right: 32px;
+	border: 8px solid #ddd;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 1px 3px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.5) 0 1px 3px;
+	box-shadow: rgba(0, 0, 0, 0.5) 0 1px 3px;
+}
+
+.opus-image img {
+	width: 100%;
+	height: auto;
+}
+
+.opus-desc {
+	float: left;
+	width: 33.33333%;
+	height: auto;
+}
+
+.opus-desc div {
+	margin-right: 32px;
+}
+
+.opus-desc p,
+.opus-desc ul {
+	text-align: justify;
+	line-height: 1.8;
+}
+
+.opus-desc p {
+	margin-bottom: 16px;
+}
+
+/* ピックアップ */
+.pickup {
+	overflow: hidden;
+	margin-bottom: 32px;
+	padding: 16px;
+	background: #fff;
+	background: rgba(255, 255, 255, 0.42);
+}
+
+.pickup h3 {
+	text-align: center;
+}
+
+.pickup-inner {
+	margin-right: -32px;
+}
+
+.pickup-unit {
+	float: left;
+	width: 50%;
+	height: auto;
+}
+
+.pickup-image {
+	float: left;
+	width: 50%;
+	height: auto;
+}
+
+.pickup-image span {
+	display: block;
+	margin-right: 32px;
+	border: 8px solid #ddd;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 1px 3px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.5) 0 1px 3px;
+	box-shadow: rgba(0, 0, 0, 0.5) 0 1px 3px;
+}
+
+.pickup-image img {
+	width: 100%;
+	height: auto;
+}
+
+.pickup-desc {
+	float: left;
+	width: 50%;
+	height: auto;
+}
+
+.pickup-desc div {
+	display: block;
+	margin-right: 32px;
+}
+
+.pickup-desc p {
+	width: 100%;
+	height: auto;
+	text-align: justify;
+	line-height: 1.8;
+}
+
+/*
+ 作品一覧
+---------------------------------------- */
+.opuses {
+	max-width: 960px;
+	margin: 0 auto;
+	padding-top: 32px;
+	border-top: 1px solid white;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0;
+	box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0;
+}
+
+.opuses .opuses-inner {
+	padding: 16px;
+	background: #c4c4c4;
+}
+
+.opuses-unit {
+	float: left;
+	width: 50%;
+	height: auto;
+}
+
+.opuses-image {
+	float: left;
+	width: 50%;
+	height: auto;
+}
+
+.opuses-image span {
+	display: block;
+	margin-right: 8px;
+	border: 8px solid #ddd;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 1px 3px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.5) 0 1px 3px;
+	box-shadow: rgba(0, 0, 0, 0.5) 0 1px 3px;
+}
+
+.opuses-image img {
+	width: 100%;
+	height: auto;
+}
+
+.opuses-desc {
+	float: left;
+	width: 50%;
+	height: auto;
+}
+
+.opuses-desc p {
+	width: 100%;
+	height: auto;
+	color: #fff;
+	font-size: 0.857em;
+	text-align: justify;
+	line-height: 1.5;
+}
+
+/*
+ メディアクエリ
+---------------------------------------- */
+@media only screen and (max-width: 959px){
+  #contents {
+	padding-left: 16px;
+	padding-right: 16px;
+}
+}
+@media only screen and (max-width: 767px){
+  #contents {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+	/* 作品個別 */
+  .opus-info > div {
+	margin-right: -16px;
+}
+
+  .opus-image span {
+	margin-right: 16px;
+}
+
+  .opus-desc div {
+	margin-right: 16px;
+}
+
+  .pickup-unit {
+	float: none;
+	width: 100%;
+	margin-bottom: 32px;
+}
+
+  .pickup-inner {
+	margin-right: -16px;
+}
+
+  .pickup-image span {
+	margin-right: 16px;
+}
+
+  .pickup-desc div {
+	margin-right: 16px;
+}
+}
+@media only screen and (max-width: 479px){
+	/* 作品個別 */
+  .opus-image {
+	float: none;
+	width: 100%;
+	margin-bottom: 32px;
+}
+
+  .opus-desc {
+	float: none;
+	width: 100%;
+}
+
+  .pickup-image {
+	float: none;
+	width: 100%;
+	margin-bottom: 8px;
+}
+
+  .pickup-desc {
+	float: none;
+	width: 100%;
+	margin-bottom: 16px;
+}
+
+	/* 作品一覧 */
+  .opuses-unit {
+	float: none;
+	width: 100%;
+	margin-bottom: 32px;
+}
+
+  .opuses-image {
+	float: none;
+	width: 100%;
+	margin-bottom: 8px;
+}
+
+  .opuses-desc {
+	float: none;
+	width: 100%;
+	margin-bottom: 16px;
+}
+}

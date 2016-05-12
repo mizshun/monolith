@@ -1,0 +1,637 @@
+@charset "utf-8";
+/*
+Theme Name: Monolith
+Theme URI: none
+Description: This is our original theme.
+Author: Shunsuke Mizusawa
+Author URI:　none
+Version:1.0
+*/
+/* ----------------------------------------
+	リセット
+---------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+body {
+	line-height: 1;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+img {
+	font-size: 0;
+	line-height: 0;
+	vertical-align: bottom;
+}
+
+・blockquote, q {
+	quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+
+abbr[title],
+dfn[title] {
+	border-bottom: 1px dotted;
+	cursor: pointer;
+}
+
+hr {
+	margin: 16px 0;
+	border: none;
+	border-top: 1px dotted #999;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+caption, th {
+	text-align: left;
+}
+
+caption {
+	display: none;
+}
+
+input,
+select,
+textarea {
+	font-size: 100%;
+	color: #4a4a4a;
+	vertical-align: middle;
+}
+
+legend {
+	display: none;
+}
+
+/* ----------------------------------------
+ CLEAR FIX
+---------------------------------------- */
+#global-header, #global-nav ul, #breadcrumb-nav ul {
+	zoom: 1;
+}
+
+#global-header:after, #global-nav ul:after, #breadcrumb-nav ul:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/* ----------------------------------------
+	WEB FONTS
+---------------------------------------- */
+@font-face{
+	font-family: 'DigitaldreamFatNarrowRegular';
+	src: url("fonts/DIGITALDREAMFATNARROW-webfont.eot");
+	src: url("fonts/DIGITALDREAMFATNARROW-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/DIGITALDREAMFATNARROW-webfont.woff") format("woff"), url("fonts/DIGITALDREAMFATNARROW-webfont.ttf") format("truetype"), url("fonts/DIGITALDREAMFATNARROW-webfont.svg#DigitaldreamFatNarrowRegular") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* アイコン */
+@font-face{
+	font-family: 'monolith';
+	src: url("fonts/monolith.eot");
+	src: url("fonts/monolith.eot?#iefix") format("embedded-opentype"), url("fonts/monolith.woff") format("woff"), url("fonts/monolith.ttf") format("truetype"), url("fonts/monolith.svg#monolith") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* ----------------------------------------
+	基本スタイル
+---------------------------------------- */
+body {
+	background: #e9e9e9;
+	/* IE10 Consumer Preview */
+	background-image: -ms-radial-gradient(center top, ellipse farthest-corner, rgba(255, 255, 255, 0.75) 0%, rgba(236, 236, 236, 0.6) 30%, rgba(221, 221, 221, 0.3) 100%), url(../img/common/bright_squares.jpg);
+	/* Mozilla Firefox */
+	background-image: -moz-radial-gradient(center top, ellipse farthest-corner, rgba(255, 255, 255, 0.75) 0%, rgba(236, 236, 236, 0.6) 30%, rgba(221, 221, 221, 0.3) 100%), url(../img/common/bright_squares.jpg);
+	/* Opera */
+	background-image: -o-radial-gradient(center top, ellipse farthest-corner, rgba(255, 255, 255, 0.75) 0%, rgba(236, 236, 236, 0.6) 30%, rgba(221, 221, 221, 0.3) 100%), url(../img/common/bright_squares.jpg);
+	/* Webkit (Safari/Chrome 10) */
+	background-image: -webkit-gradient(radial, center top, 0, center top, 553, color-stop(0, white), color-stop(0.5, rgba(236, 236, 236, 0.4)), color-stop(1, rgba(221, 221, 221, 0.3)));
+	/* Webkit (Chrome 11+) */
+	background-image: -webkit-radial-gradient(center top, ellipse farthest-corner, rgba(255, 255, 255, 0.75) 0%, rgba(236, 236, 236, 0.6) 30%, rgba(221, 221, 221, 0.3) 100%), url(../img/common/bright_squares.jpg);
+	/* W3C Markup, IE10 Release Preview */
+	background-image: radial-gradient(ellipse farthest-corner at center top, rgba(255, 255, 255, 0.75) 0%, rgba(236, 236, 236, 0.6) 30%, rgba(221, 221, 221, 0.3) 100%), url(../img/common/bright_squares.jpg);
+	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	font-size: 14px;
+	color: #4a4a4a;
+	line-height: 1;
+	-webkit-font-kerning: normal;
+	-moz-font-kerning: normal;
+	-ms-font-kerning: normal;
+	-o-font-kerning: normal;
+	font-kerning: normal;
+}
+
+/* FONT-SIZE LIST (base: 14px)
+ 8px = 0.571em
+ 9px = 0.643em
+10px = 0.714em
+11px = 0.786em
+12px = 0.857em
+13px = 0.929em
+14px =		 1em
+15px = 1.071em
+16px = 1.143em
+17px = 1.214em
+18px = 1.286em
+19px = 1.357em
+20px = 1.429em
+21px =	 1.5em
+22px = 1.571em
+23px = 1.643em
+24px = 1.714em
+25px = 1.786em
+26px = 1.857em
+27px = 1.929em
+28px =		 2em
+29px = 2.071em
+30px = 2.143em
+31px = 2.214em
+32px = 2.286em
+33px = 2.357em
+34px = 2.429em
+35px =	 2.5em
+36px = 2.571em
+37px = 2.643em
+38px = 2.714em
+39px = 2.786em
+40px = 2.857em
+*/
+h1 {
+	font-size: 0.786em;
+	letter-spacing: 0.1em;
+	-webkit-font-smoothing: antialiased;
+}
+
+h2 {
+	font-family: "DigitaldreamFatNarrowRegular", sans-serif;
+	font-size: 2em;
+	font-weight: normal;
+	color: #111111;
+	letter-spacing: 0.1em;
+	-webkit-font-smoothing: antialiased;
+}
+
+h3 {
+	font-family: "DigitaldreamFatNarrowRegular", sans-serif;
+	font-size: 1.286em;
+	font-weight: normal;
+	color: #111111;
+	letter-spacing: 0.1em;
+	-webkit-font-smoothing: antialiased;
+}
+
+h4 {
+	font-family: "DigitaldreamFatNarrowRegular", sans-serif;
+	font-size: 1em;
+	font-weight: normal;
+	color: #111111;
+}
+
+h5 {
+	font-family: "DigitaldreamFatNarrowRegular", sans-serif;
+	font-size: 1em;
+	font-weight: normal;
+	color: #111111;
+}
+
+h6 {
+	font-family: "DigitaldreamFatNarrowRegular", sans-serif;
+	font-size: 1em;
+	font-weight: normal;
+	color: #111111;
+}
+
+a {
+	color: #111111;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #111111;
+}
+
+a:hover {
+	color: #111111;
+	text-decoration: underline;
+}
+
+a:active {
+	color: #111111;
+}
+
+.comp {
+	border-bottom: 1px dotted;
+	cursor: pointer;
+}
+
+/* ----------------------------------------
+ 共通レイアウト
+---------------------------------------- */
+/*
+ global-header
+---------------------------------------- */
+#global-header {
+	overflow: hidden;
+	position: relative;
+	max-width: 960px;
+	margin: 0 auto;
+	padding-bottom: 32px;
+	z-index: 1;
+}
+
+#global-header .siteTitle-inner {
+	/* 詳細度対策 */
+	color: #111111;
+	text-decoration: none;
+}
+
+/*
+ タイトルロゴデザイン
+---------------------------------------- */
+.siteTitle {
+	position: relative;
+	margin: 34px 32px 3px 9px;
+	padding-left: 64px;
+	padding-bottom: 3px;
+	border-bottom: 1px solid #6f0000;
+	-webkit-box-shadow: 0 1px 0 white;
+	-moz-box-shadow: 0 1px 0 white;
+	box-shadow: 0 1px 0 white;
+	font-size: 48px;
+	color: #111111;
+	font-weight: normal;
+	letter-spacing: 0.025em;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.siteTitle:before {
+	content: attr(data-icon);
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 9px;
+	font-family: "monolith", sans-serif;
+	color: #222;
+	line-height: 1;
+	speak: none;
+}
+
+.ie .siteTitle:before {
+	bottom: -2px;
+}
+
+/* IE9 */
+.siteTitle:after {
+	content: 'f';
+	display: block;
+	position: absolute;
+	top: 30px;
+	right: -24px;
+	height: 38px;
+	width: 18px;
+	padding-left: 20px;
+	border: 1px solid #6f0000;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	background: #c1d5dd;
+	-webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.61) inset, -1px -1px 0 rgba(0, 0, 0, 0.08) inset;
+	-moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.61) inset, -1px -1px 0 rgba(0, 0, 0, 0.08) inset;
+	box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.61) inset, -1px -1px 0 rgba(0, 0, 0, 0.08) inset;
+	font-family: "monolith", sans-serif;
+	font-size: 24px;
+	line-height: 12px;
+	text-transform: none;
+	z-index: 7777;
+}
+
+.siteTitle-inner {
+	font-family: "DigitaldreamFatNarrowRegular", sans-serif;
+	font-size: 28px;
+	text-shadow: 1px 1px 0 #FFF;
+}
+
+.siteTitle-inner:before {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: -21px;
+	left: -8px;
+	width: 36px;
+	height: 36px;
+	margin-right: 12px;
+	border: 24px solid #f5e888;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	-webkit-box-shadow: 0 0 2px #d8c113;
+	-moz-box-shadow: 0 0 2px #d8c113;
+	box-shadow: 0 0 2px #d8c113;
+	z-index: -1;
+}
+
+.siteTitle-inner:after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: -18px;
+	left: -1px;
+	width: 36px;
+	height: 36px;
+	margin-right: 12px;
+	border: 16px solid #f8de16;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	background: #fff;
+	-webkit-box-shadow: 0 0 2px #d8c113;
+	-moz-box-shadow: 0 0 2px #d8c113;
+	box-shadow: 0 0 2px #d8c113;
+	z-index: -1;
+}
+
+.siteTitle-highlight {
+	color: #2b5e72;
+}
+
+/* タイトルロゴデザインここまで */
+/*
+ siteLead
+---------------------------------------- */
+#siteLead {
+	overflow: hidden;
+	position: absolute;
+	top: 5px;
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align: right;
+}
+
+/*
+ global-nav
+---------------------------------------- */
+#global-nav {
+	position: absolute;
+	top: 66px;
+	right: 64px;
+	font-family: "DigitaldreamFatNarrowRegular", sans-serif;
+	z-index: 7777;
+}
+
+#global-nav li {
+	float: left;
+	padding-left: 32px;
+	letter-spacing: 0.2em;
+}
+
+#global-nav a {
+	color: #111111;
+}
+
+/*
+ breadcrumb-nav
+---------------------------------------- */
+#breadcrumb-nav {
+	clear: left;
+	padding: 8px 16px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	background: #111111;
+	color: #fff;
+	line-height: 1.8;
+}
+
+#breadcrumb-nav ul li {
+	float: left;
+	padding-right: 8px;
+	font-size: 0.786em;
+	letter-spacing: 0.2em;
+}
+
+#breadcrumb-nav ul a {
+	color: #fff;
+}
+
+/*
+ global-footer
+---------------------------------------- */
+#global-footer {
+	position: relative;
+	max-width: 960px;
+	margin: 0 auto;
+	margin-top: 64px;
+	background: transparent;
+}
+
+#global-footer .copyright {
+	padding: 32px 0;
+	font-size: 0.786em;
+	text-align: center;
+}
+
+#global-footer .totop {
+	padding: 16px;
+	border: 1px solid #dddddd;
+	-webkit-border-radius: 16px;
+	-moz-border-radius: 16px;
+	-ms-border-radius: 16px;
+	-o-border-radius: 16px;
+	border-radius: 16px;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) inset, 3px 3px 12px rgba(0, 0, 0, 0.15) inset;
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) inset, 3px 3px 12px rgba(0, 0, 0, 0.15) inset;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) inset, 3px 3px 12px rgba(0, 0, 0, 0.15) inset;
+	background: #e0e0e0;
+	background: -webkit-linear-gradient(top, #e0e0e0, white);
+	background: -moz-linear-gradient(top, #e0e0e0, white);
+	background: -ms-linear-gradient(top, #e0e0e0, white);
+	background: linear-gradient(to bottom, #e0e0e0, #ffffff);
+}
+
+#global-footer .totop a {
+	display: block;
+	padding: 16px;
+	border: 1px solid black;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
+	background: #2d2d2d;
+	background: -webkit-linear-gradient(top, #2d2d2d, #111111);
+	background: -moz-linear-gradient(top, #2d2d2d, #111111);
+	background: -ms-linear-gradient(top, #2d2d2d, #111111);
+	background: linear-gradient(to bottom, #2d2d2d, #111111);
+	-webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 6px rgba(0, 0, 0, 0.45);
+	-moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 6px rgba(0, 0, 0, 0.45);
+	box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 6px rgba(0, 0, 0, 0.45);
+	font-family: impact, arial, sans-serif;
+	font-size: 1.286em;
+	color: white;
+	font-weight: bold;
+	letter-spacing: 0.05em;
+	text-align: center;
+	text-shadow: -1px -1px 0 black;
+	text-transform: uppercase;
+}
+
+#global-footer .totop a:hover {
+	opacity: 0.9;
+}
+
+#global-footer .totop a:active {
+	-webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 3px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 3px rgba(0, 0, 0, 0.35);
+	box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 3px rgba(0, 0, 0, 0.35);
+}
+
+#global-footer .totop a:before {
+	content: attr(data-icon);
+	font-family: "monolith", sans-serif;
+	font-size: 2.571em;
+	color: white;
+	vertical-align: baseline;
+	speak: none;
+	text-transform: none;
+}
+
+/*
+ メディアクエリ
+---------------------------------------- */
+@media only screen and (max-width: 959px){
+  .siteTitle {
+	margin-left: 24px;
+}
+
+  .siteTitle:after {
+	right: -8px;
+}
+
+  #breadcrumb-nav {
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	-o-border-radius: 0;
+	border-radius: 0;
+}
+
+  #global-footer .totop {
+	margin-left: 16px;
+	margin-right: 16px;
+}
+}
+@media only screen and (max-width: 767px){
+  #global-header {
+	margin-bottom: 32px;
+	padding-bottom: 0;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 1px 3px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.5) 0 1px 3px;
+	box-shadow: rgba(0, 0, 0, 0.5) 0 1px 3px;
+}
+
+  .siteTitle {
+	margin-left: 16px;
+}
+
+  .siteTitle:after {
+	right: -16px;
+}
+
+  #breadcrumb-nav {
+	display: none;
+}
+
+  #global-nav {
+	-webkit-transition: height ease-in 0.2s;
+	-moz-transition: height ease-in 0.2s;
+	-o-transition: height ease-in 0.2s;
+	transition: height ease-in 0.2s;
+	position: static;
+	width: 100%;
+}
+
+  #global-nav li {
+	width: 50%;
+	padding-left: 0;
+	text-align: center;
+}
+
+  #global-nav li a {
+	display: block;
+	color: #fff;
+	padding: 17px 8px;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #1e1e1e;
+	background: #111111;
+	background: #1e1e1e;
+	background: -webkit-linear-gradient(top, #1e1e1e, #191919);
+	background: -moz-linear-gradient(top, #1e1e1e, #191919);
+	background: -ms-linear-gradient(top, #1e1e1e, #191919);
+	background: linear-gradient(to bottom, #1e1e1e, #191919);
+}
+
+  #global-nav li a:hover {
+	opacity: 0.9;
+}
+
+  #global-footer .totop {
+	margin-left: 8px;
+	margin-right: 8px;
+}
+}
+@media only screen and (max-width: 479px){
+  .siteTitle-inner {
+	font-size: 18px;
+}
+}

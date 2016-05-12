@@ -1,0 +1,281 @@
+@charset "utf-8";
+
+/* ----------------------------------------
+ 共通レイアウト
+---------------------------------------- */
+
+/*
+ global-header
+---------------------------------------- */
+#global-header {
+	@extend %cf;
+	overflow: hidden;
+	position: relative;
+	@include contCenter(max, $baseWidth);
+	padding-bottom: $baseSpaceL;
+	z-index: 1;
+	.siteTitle-inner {
+		/* 詳細度対策 */
+		color: $strongFontColor;
+		text-decoration: none;
+	}
+}
+
+/*
+ タイトルロゴデザイン
+---------------------------------------- */
+.siteTitle {
+	position: relative;
+	margin: 34px 32px 3px 9px;
+	padding-left: 64px;
+	padding-bottom: 3px;
+	border-bottom: 1px solid #6f0000;
+	@include box-shadow(0 1px 0 #fff);
+	font-size: 48px;
+	color: $strongFontColor;
+	font-weight: normal;
+	letter-spacing: 0.025em;
+	line-height: 1;
+	text-transform: uppercase;
+}
+.siteTitle:before {
+	content: attr(data-icon);
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 9px;
+	font-family: $iconFontFamily;
+	color: #222;
+	line-height: 1;
+	speak: none;
+	.ie & {
+		bottom: -2px;
+	}
+}
+
+/* IE9 */
+
+.siteTitle:after {
+	content: 'f';
+	display: block;
+	position: absolute;
+	top: 30px;
+	right: -24px;
+	height: 38px;
+	width: 18px;
+	padding-left: 20px;
+	border: 1px solid #6f0000;
+	@include border-radius(50%);
+	background: #c1d5dd;
+	@include box-shadow(1px 1px 0 rgba(#fff, 0.61) inset, -1px -1px 0 rgba(#000, 0.08) inset);
+	font-family: $iconFontFamily;
+	font-size: 24px;
+	line-height: 12px;
+	text-transform: none;
+	z-index: 7777;
+}
+.siteTitle-inner {
+	font-family: $subFontFamily;
+	font-size: 28px;
+	text-shadow: 1px 1px 0 #FFF;
+}
+.siteTitle-inner:before {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: -21px;
+	left: -8px;
+	width: 36px;
+	height: 36px;
+	margin-right: 12px;
+	border: 24px solid #f5e888;
+	@include border-radius(50%);
+	@include box-shadow(0 0 2px #d8c113);
+	z-index: -1;
+}
+.siteTitle-inner:after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: -18px;
+	left: -1px;
+	width: 36px;
+	height: 36px;
+	margin-right: 12px;
+	border: 16px solid #f8de16;
+	@include border-radius(50%);
+	background: #fff;
+	@include box-shadow(0 0 2px #d8c113);
+	z-index: -1;
+}
+.siteTitle-highlight {
+	color: #2b5e72;
+}
+/* タイトルロゴデザインここまで */
+
+/*
+ siteLead
+---------------------------------------- */
+#siteLead {
+	overflow: hidden;
+	position: absolute;
+	top: 5px;
+	width: calcCol();
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align: right;
+}
+
+/*
+ global-nav
+---------------------------------------- */
+#global-nav {
+	position: absolute;
+	top: 66px;
+	right: 64px;
+	// overflow: hidden;
+	font-family: $subFontFamily;
+	z-index: 7777;
+	ul {
+		@extend %cf;
+	}
+	li {
+		float: left;
+		padding-left: $baseSpaceM * 2;
+		letter-spacing: 0.2em;
+	}
+	a {
+		color: $strongFontColor;
+	}
+}
+
+/*
+ breadcrumb-nav
+---------------------------------------- */
+#breadcrumb-nav {
+	clear: left;
+	padding: $baseSpaceS $baseSpaceM;
+	@include border-radius(3px);
+	background: $subBgColor;
+	// @include box-shadow(0 1px 3px rgba(#000, 0.3));
+	color: #fff;
+	line-height: $baseLineHeight;
+	ul {
+		@extend %cf;
+		li {
+			float: left;
+			padding-right: $baseSpaceS;
+			font-size: 0.786em;
+			letter-spacing: 0.2em;
+		}
+		a {
+			color: #fff;
+		}
+	}
+}
+
+/*
+ global-footer
+---------------------------------------- */
+#global-footer {
+	position: relative;
+	@include contCenter(max, $baseWidth);
+	margin-top: $baseSpaceL * 2;
+	background: transparent;
+	.copyright {
+		padding: $baseSpaceL 0;
+		font-size: 0.786em;
+		text-align: center;
+	}
+	.totop {
+		@include makeBtnFrame();
+		a {
+			@include makeBtn();
+			@include setBtnLabel();
+			text-transform: uppercase;
+			&:before {
+				@include setIcon(
+					$fc: #fff
+				);
+				text-transform: none;
+			}
+		}
+	}
+}
+
+/*
+ メディアクエリ
+---------------------------------------- */
+@include widthQuery(max-width, 959px) {
+	.siteTitle {
+		margin-left: $baseSpaceM + $baseSpaceS;
+	}
+	.siteTitle:after {
+		right: -8px;
+	}
+	#breadcrumb-nav {
+		@include border-radius(0);
+	}
+
+	#global-footer {
+		.totop {
+			margin-left: $baseSpaceM;
+			margin-right: $baseSpaceM;
+		}
+	}
+}
+
+@include widthQuery(max-width, 767px) {
+	#global-header {
+		margin-bottom: $baseSpaceL;
+		padding-bottom: 0;
+		@include box-shadow(rgba(#000, 0.5) 0 1px 3px);
+	}
+	.siteTitle {
+		margin-left: $baseSpaceM;
+	}
+	.siteTitle:after {
+		right: -16px;
+	}
+	#breadcrumb-nav {
+		display: none;
+	}
+	#global-nav {
+		-webkit-transition: height ease-in 0.2s;
+		-moz-transition: height ease-in 0.2s;
+		-o-transition: height ease-in 0.2s;
+		transition: height ease-in 0.2s;
+		position: static;
+		width: 100%;
+		li {
+			width: calcCol(2);
+			padding-left: 0;
+			text-align: center;
+			a {
+				display: block;
+				color: #fff;
+				padding: 17px $baseSpaceS;
+				border-top: 1px solid #000;
+				border-bottom: 1px solid #1e1e1e;
+				background: $subBgColor;
+				@include linearGradient(top, #1e1e1e, #191919);
+				&:hover {
+					opacity: 0.9;
+				}
+			}
+		}
+	}
+
+	#global-footer {
+		.totop {
+			margin-left: $baseSpaceS;
+			margin-right: $baseSpaceS;
+		}
+	}
+}
+
+@include widthQuery(max-width, 479px) {
+	.siteTitle-inner {
+		font-size: 18px;
+	}
+}

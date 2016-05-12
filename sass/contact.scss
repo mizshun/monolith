@@ -1,0 +1,188 @@
+@charset "utf-8";
+
+//----------------------------------------
+//	COMPASS
+//----------------------------------------
+@import "compass/css3";
+
+//----------------------------------------
+//	設定
+//----------------------------------------
+@import "common/setting";
+
+//----------------------------------------
+//	MIXIN
+//----------------------------------------
+@import "common/mixin";
+
+//----------------------------------------
+//	EXTEND
+//----------------------------------------
+@import "common/extend";
+
+/* ----------------------------------------
+	ページ固有スタイル
+---------------------------------------- */
+
+/*
+ GENERAL STYLE
+---------------------------------------- */
+/* 大見出し設定 */
+.dummyHeading {
+	margin-bottom: $baseSpaceS * 0.75;
+	padding-top: 2px;
+	font-family: $subFontFamily;
+	font-size: 2em; // 28px
+	color: $strongFontColor;
+	letter-spacing: 0.1em;
+	text-align: center;
+	& + p {
+		margin-bottom: $baseSpaceL;
+		font-size: 0.786em; // 11px
+		font-weight: bold;
+		text-align: center;
+		letter-spacing: 0.1em;
+	}
+}
+
+/* 小見出し設定 */
+h2 {
+	margin-bottom: $baseSpaceL;
+	font-size: 1.286em;
+	& + p {
+		margin-bottom: $baseSpaceL;
+		line-height: $baseLineHeight;
+		text-align: justify;
+	}
+}
+
+#contents {
+	overflow: hidden;
+	@include contCenter(max, $baseWidth);
+}
+
+.contents-inner {
+	@extend %cf;
+	margin-right: -$baseSpaceL;
+}
+
+input,
+textarea {
+	width: calcCol();
+	@include box-sizing(border-box);
+}
+
+input[type=text],
+input[type=email],
+textarea {
+	margin-bottom: $baseSpaceL;
+	border: $baseSpaceS solid #ddd;
+	padding: $baseSpaceS;
+	@include box-shadow(1px 1px 3px rgba(0, 0, 0, 0.61) inset);
+}
+
+textarea {
+	min-height: 240px;
+}
+
+label {
+	display: block;
+	margin: 0 0 ($baseSpaceS / 2);
+	font-weight: bold;
+}
+
+.stl-btn {
+	@include makeBtnFrame();
+	input {
+		@include makeBtn(
+			$bgcl: $keyBgColor,
+			$pd  : $baseSpaceL
+		);
+		@include setBtnLabel(
+			$ts: -1px -1px 0 darken($keyBgColor, 10%),
+			$ls: 0.2em
+		);
+		&:before {
+			@include setIcon();
+		}
+	}
+}
+
+/*
+ GENERAL CLASSES
+---------------------------------------- */
+/* 必須項目 */
+.require {
+	color: #b12b16;
+}
+
+/*
+ コンタクトフォーム
+---------------------------------------- */
+.contact {
+	float: left;
+	width: calcCol(3, $baseWidth) * 2;
+	height: auto;
+}
+.contact-inner {
+	margin-right: $baseSpaceL;
+	padding-right: $baseSpaceL;
+	@include hairLine(right, 1, .2);
+}
+
+/*
+ ホワイトボード
+---------------------------------------- */
+.whiteBoard {
+	float: left;
+	width: calcCol(3, $baseWidth) * 1;
+	height: auto;
+	p {
+		margin-bottom: 25px;
+	}
+}
+.whiteBoard-inner {
+	margin-right: $baseSpaceL;
+}
+
+/*
+ メディアクエリ
+---------------------------------------- */
+@include widthQuery(max-width, 959px) {
+	#contents {
+		padding-left: $baseSpaceM;
+		padding-right: $baseSpaceM;
+	}
+}
+
+@include widthQuery(max-width, 767px) {
+	#contents {
+		padding-left: $baseSpaceS;
+		padding-right: $baseSpaceS;
+	}
+	.contents-inner {
+		margin-right: -$baseSpaceM;
+	}
+
+	.contact {
+		float: none;
+		width: calcCol();
+		margin-bottom: $baseSpaceL;
+	}
+	.contact-inner {
+		margin-right: $baseSpaceM;
+		padding-right: 0;
+		border-right: none;
+		@include box-shadow(none);
+	}
+
+	.whiteBoard {
+		float: none;
+		width: calcCol();
+	}
+	.whiteBoard-inner {
+		margin-right: $baseSpaceM;
+		padding-top: $baseSpaceL;
+		@include hairLine(top, 1, .2);
+	}
+}

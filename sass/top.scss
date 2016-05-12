@@ -1,0 +1,449 @@
+@charset "utf-8";
+
+//----------------------------------------
+//	COMPASS
+//----------------------------------------
+@import "compass/css3";
+
+//----------------------------------------
+//	設定
+//----------------------------------------
+@import "common/setting";
+
+//----------------------------------------
+//	MIXIN
+//----------------------------------------
+@import "common/mixin";
+
+//----------------------------------------
+//	EXTEND
+//----------------------------------------
+@import "common/extend";
+
+/* ----------------------------------------
+	ページ固有スタイル
+---------------------------------------- */
+$solidW: ($baseWidth - ($baseSpaceL * 3)) / 4;
+
+/*
+ GENERAL STYLE
+---------------------------------------- */
+h2 {
+	margin-bottom: $baseSpaceS * 0.75;
+	text-align: center;
+	& + p {
+		margin-bottom: $baseSpaceL;
+		font-size: 0.786em; // 11px
+		font-weight: bold;
+		text-align: center;
+		letter-spacing: 0.1em;
+	}
+}
+
+#siteLead {
+	// text-align: left;
+}
+
+/*
+ recentWorks
+---------------------------------------- */
+.recentWorks {
+	h2 {
+		display: none;
+	}
+	h3 {
+		position: absolute;
+		bottom: 0;
+		width: calcCol();
+		padding: $baseSpaceS 0 $baseSpaceS $baseSpaceM;
+		background: rgba(#fff, 1);
+		color: $subBgColor;
+		line-height: 1.2;
+		z-index: 1;
+	}
+	.slider {
+		position: relative;
+		@include contCenter(max, $baseWidth);
+		border-bottom: ($baseSpaceL * 2) solid $subBgColor;
+		background: rgba(#fff, 0.4);
+	}
+	.slider-items {
+		@extend %cf;
+		width: $baseWidth;
+		li {
+			position: relative;
+			float: left;
+		}
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+	.more-link {
+		/* 作品一覧へ */
+		position: absolute;
+		bottom: $baseSpaceS;
+		right: $baseSpaceM;
+		z-index: 1;
+		a {
+			&:after {
+				margin-left: $baseSpaceS;
+				@include setIcon(
+					$fz: 1em
+				);
+			}
+		}
+	}
+}
+
+/*
+ service
+---------------------------------------- */
+.service {
+	@extend %cf;
+	@include contCenter(max, $baseWidth);
+	padding-top: $baseSpaceL;
+	@include hairLine(top, 1, .2);
+	& > div {
+		margin-bottom: $baseSpaceL;
+	}
+	ul {
+		@extend %cf;
+		margin-right: -$baseSpaceL;
+	}
+	li {
+		float: left;
+		width: calcCol(3, $baseWidth);
+		height: auto;
+	}
+	article {
+		position: relative;
+		margin-right: $baseSpaceL;
+		background: #fff;
+		@include box-shadow(rgba(0, 0, 0, 0.5) 0 1px 3px);
+		img {
+			width: calcCol();
+			height: auto;
+			border-top: $baseSpaceL solid #e7c65e;
+			border-bottom: $baseSpaceL solid #e7c65e;
+		}
+		.post-body {
+			padding: $baseSpaceM 0 0;
+		}
+		h3 {
+			padding: 0 $baseSpaceM;
+			a {
+				color: $strongFontColor;
+				line-height: 1.2;
+			}
+		}
+		h3 + p {
+			margin-top: $baseSpaceS;
+			padding: 0 $baseSpaceM;
+			text-align: justify;
+			line-height: $baseLineHeight;
+		}
+		.more-link {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: calcCol();
+			a {
+				display: block;
+				padding: 9px $baseSpaceM;
+				background: $subBgColor;
+				color: #fff;
+				font-size: 0.786em;
+				text-align: right;
+				&:after {
+					margin-left: $baseSpaceS;
+					@include setIcon(
+						$fc: #fff,
+						$fz: 1em
+					);
+				}
+			}
+		}
+	}
+}
+
+/*
+ blog
+---------------------------------------- */
+.blog {
+	$imageSize: 216px;
+	@include contCenter(max, $baseWidth);
+	margin-bottom: $baseSpaceL;
+	padding-top: $baseSpaceL;
+	@include hairLine(top, 1, .2);
+	.post {
+		position: relative;
+		min-height: $solidW;
+		margin-bottom: $baseSpaceL;
+		.post-inner {
+			@extend %cf;
+		}
+		.post-thumb {
+			position: absolute;
+			top: 0;
+			left: 0;
+			&:before {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border: $baseSpaceM solid rgba(202, 161, 29, 0.36);
+				@include border-radius(50%);
+				@include box-sizing(border-box);
+			}
+			&:after {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border: ($baseSpaceM + $baseSpaceS) solid rgba(245, 196, 40, 0.36);
+				@include border-radius(44%);
+				@include box-sizing(border-box);
+			}
+			a {
+				display: block;
+				width: $solidW;
+				height: $solidW;
+				&:before {
+					content: "";
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					border: $baseSpaceS / 2 solid rgba(202, 161, 29, 0.2);
+					@include border-radius(42% 50%);
+					@include box-sizing(border-box);
+				}
+				&:after {
+					content: "";
+					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					border: $baseSpaceS solid rgba(202, 161, 29, 0.3);
+					@include border-radius(46% 42%);
+					@include box-sizing(border-box);
+				}
+			}
+			img {
+				width: calcCol();
+				// height: auto;
+				height: 100%;
+				@include border-radius(50%);
+			}
+		 }
+		.post-body {
+			$solidWS: $solidW + $baseSpaceL;
+			// min-height: $solidW;
+			margin-left: $solidWS;
+			border-left: 1px solid #fff;
+			@include border-radius($baseSpaceM 0 0 $baseSpaceM);
+			@include box-shadow(rgba(0, 0, 0, 0.1) 1px 0 0 inset);
+		}
+		h3 {
+			padding: $baseSpaceM $baseSpaceL $baseSpaceM $baseSpaceL;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+			border-right: 2px solid $keyBgColor;
+			@include border-top-left-radius($baseSpaceM);
+			background: #fff;
+			font-family: serif;
+			font-family: meiryo, sans-serif; // todo
+			line-height: 1.5;
+			a {
+				color: $strongFontColor;
+			}
+		}
+		.post-meta {
+			margin: $baseSpaceM 0 $baseSpaceL;
+			margin-left: $baseSpaceL;
+			font-size: 0.786em;
+			span {
+				@extend %fcBk;
+				@extend %fwB;
+			}
+		}
+		.post-time,
+		.post-tag {
+			display: inline;
+		}
+		header + p {
+			margin-left: $baseSpaceL;
+			line-height: $baseLineHeight;
+			text-align: justify;
+		}
+		.more-link {
+			margin-top: $baseSpaceL;
+			padding: $baseSpaceS $baseSpaceM;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+			border-right: 2px solid $keyBgColor;
+			@include border-bottom-left-radius($baseSpaceM);
+			background: #fff;
+			font-size: 0.786em;
+			text-align: right;
+			a {
+				&:after {
+					margin-left: $baseSpaceS;
+					@include setIcon(
+						$fz: 1em
+					);
+				}
+			}
+		}
+	}
+}
+
+/*
+ メディアクエリ
+---------------------------------------- */
+@include widthQuery(max-width, 959px) {
+	.recentWorks {
+		.more-link {
+			/* 作品一覧へ */
+			p {
+				margin-right: $baseSpaceM;
+			}
+		}
+	}
+
+	.service {
+		overflow: hidden; // box-shadowのためにここで指定
+		padding-left: $baseSpaceM; // box-shadowのためpadding
+		padding-right: $baseSpaceM; // box-shadowのためpadding
+	}
+
+	.blog {
+		padding-left: $baseSpaceM;
+		padding-right: $baseSpaceM;
+	}
+}
+
+@include widthQuery(max-width, 767px) {
+	// トップページのみ
+	#global-header {
+		margin-bottom: 0;
+	}
+
+	.recentWorks {
+		.more-link {
+			/* 作品一覧へ */
+			p {
+				margin-right: $baseSpaceS;
+			}
+		}
+	}
+
+	.service {
+		padding-left: $baseSpaceS; // box-shadowのためpadding
+		padding-right: $baseSpaceS; // box-shadowのためpadding
+		ul {
+			margin-right: -$baseSpaceS;
+		}
+		li {
+			float: left;
+			width: calcCol(2, $baseWidth);
+		}
+		article {
+			margin-right: $baseSpaceS;
+			margin-bottom: $baseSpaceS;
+		}
+	}
+
+	.blog {
+		padding-left: $baseSpaceS;
+		padding-right: $baseSpaceS;
+		.post {
+			min-height: 0;
+			.post-thumb {
+				&:before {
+					border-width: $baseSpaceS;
+				}&:after {
+					border-width: $baseSpaceM;
+				}
+				a {
+					width: $solidW / 2;
+					height: $solidW / 2;
+				}
+			}
+			.post-body {
+				$solidWS: ($solidW / 2) + $baseSpaceL;
+				min-height: $solidW / 2;
+				margin-left: $solidWS;
+				border: none;
+			}
+			h3 {
+				min-height: 76px;
+				margin-bottom: 0;
+				padding: $baseSpaceM;
+				@include border-radius($baseSpaceS / 2);
+			}
+			.post-meta {
+				display: none;
+			}
+			header + p {
+				display: none;
+			}
+			.more-link {
+				display: none;
+			}
+		}
+		#btn-subMenu {
+			right: $baseSpaceS;
+		}
+	}
+}
+
+@include widthQuery(max-width, 479px) {
+	.recentWorks {
+		h3 {
+			font-size: 0.786em;
+		}
+		.more-link {
+			font-size: 0.786em;
+		}
+	}
+	.service {
+		margin-bottom: $baseSpaceL;
+		ul {
+			margin: 0 $baseSpaceS;
+		}
+		li {
+			float: none;
+			width: 100%;
+		}
+		article {
+			margin-bottom: $baseSpaceM;
+			margin-right: 0;
+			.post-body,
+			.more-link	{
+				display: none;
+			}
+		}
+	}
+
+	.blog {
+		.post {
+			margin-bottom: $baseSpaceM;
+			.post-thumb {
+				display: none;
+			}
+			.post-body {
+				margin-left: 0;
+			}
+		}
+	}
+}

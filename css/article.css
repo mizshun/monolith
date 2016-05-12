@@ -1,0 +1,1018 @@
+@charset "utf-8";
+/* ----------------------------------------
+ CLEAR FIX
+---------------------------------------- */
+#pager ul, .blog-sub-tag, .blog-sub-add ul, .post-meta {
+	zoom: 1;
+}
+
+#pager ul:after, .blog-sub-tag:after, .blog-sub-add ul:after, .post-meta:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.post-meta span {
+	font-weight: bold;
+}
+
+.post-meta span {
+	color: #111111;
+}
+
+/* ----------------------------------------
+	ページ固有スタイル
+---------------------------------------- */
+/*
+ GENERAL STYLE
+---------------------------------------- */
+/* 大見出し設定 */
+.dummyHeading {
+	position: relative;
+	padding: 16px;
+	background: #fff;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+	font-size: 2em;
+	color: #111111;
+	letter-spacing: 0.1em;
+	text-align: left;
+	text-align: justify;
+	line-height: 1.5;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.dummyHeading + p {
+	margin-bottom: 48px;
+	padding: 16px;
+	background: #f8de16;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+	font-size: 0.786em;
+	font-weight: bold;
+	text-align: left;
+	letter-spacing: 0.1em;
+}
+
+.dummyHeading + p a {
+	border-bottom: 1px dashed #111111;
+	font-weight: bold;
+}
+
+.dummyHeading + p a:hover {
+	background: #f8de16;
+}
+
+.dummyHeading + p span:before {
+	margin-right: 4px;
+	content: attr(data-icon);
+	font-family: "monolith", sans-serif;
+	font-size: 1.286em;
+	color: #111111;
+	vertical-align: baseline;
+	speak: none;
+}
+
+.dummyHeading:before {
+	content: "";
+	position: absolute;
+	bottom: -74px;
+	left: 50%;
+	margin-left: -74px;
+	border-left: rgba(0, 0, 0, 0) 74px solid;
+	border-right: rgba(0, 0, 0, 0) 74px solid;
+	border-top: 74px solid rgba(0, 0, 0, 0.15);
+}
+
+.dummyHeading:after {
+	content: "";
+	position: absolute;
+	bottom: -72px;
+	left: 50%;
+	margin-left: -72px;
+	border-left: transparent 72px solid;
+	border-right: transparent 72px solid;
+	border-top: 72px solid white;
+}
+
+/* 小見出し設定 */
+h2,
+h3,
+h4,
+h5 {
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+h2,
+h3 {
+	margin-bottom: 32px;
+}
+
+h4,
+h5 {
+	margin-bottom: 16px;
+}
+
+#contents {
+	position: relative;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+/*
+ desc
+---------------------------------------- */
+.desc {
+	padding: 8px 32px;
+	border-left: 1px solid #111;
+	border-right: 1px solid #111;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: white 1px 0 0 inset, white 1px 0 0;
+	-moz-box-shadow: white 1px 0 0 inset, white 1px 0 0;
+	box-shadow: white 1px 0 0 inset, white 1px 0 0;
+}
+
+/*
+ btn-subMenu
+---------------------------------------- */
+#btn-subMenu {
+	display: none;
+	position: fixed;
+	bottom: 16px;
+	right: 4px;
+}
+
+#btn-subMenu a {
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
+	display: block;
+	padding: 8px;
+	border: 1px solid black;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
+	background: #2d2d2d;
+	background: -webkit-linear-gradient(top, #2d2d2d, #111111);
+	background: -moz-linear-gradient(top, #2d2d2d, #111111);
+	background: -ms-linear-gradient(top, #2d2d2d, #111111);
+	background: linear-gradient(to bottom, #2d2d2d, #111111);
+	-webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 6px rgba(0, 0, 0, 0.45);
+	-moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 6px rgba(0, 0, 0, 0.45);
+	box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+#btn-subMenu a:hover {
+	opacity: 0.9;
+}
+
+#btn-subMenu a:active {
+	-webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 3px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 3px rgba(0, 0, 0, 0.35);
+	box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 3px rgba(0, 0, 0, 0.35);
+}
+
+#btn-subMenu a:after {
+	content: attr(data-icon);
+	font-family: "monolith", sans-serif;
+	font-size: 2em;
+	color: white;
+	vertical-align: baseline;
+	speak: none;
+}
+
+/*
+ pager
+---------------------------------------- */
+#pager {
+	display: inline;
+	text-align: center;
+}
+
+#pager ul {
+	padding: 16px;
+	border: 1px solid #dddddd;
+	-webkit-border-radius: 16px;
+	-moz-border-radius: 16px;
+	-ms-border-radius: 16px;
+	-o-border-radius: 16px;
+	border-radius: 16px;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) inset, 3px 3px 12px rgba(0, 0, 0, 0.15) inset;
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) inset, 3px 3px 12px rgba(0, 0, 0, 0.15) inset;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) inset, 3px 3px 12px rgba(0, 0, 0, 0.15) inset;
+	background: #e0e0e0;
+	background: -webkit-linear-gradient(top, #e0e0e0, white);
+	background: -moz-linear-gradient(top, #e0e0e0, white);
+	background: -ms-linear-gradient(top, #e0e0e0, white);
+	background: linear-gradient(to bottom, #e0e0e0, #ffffff);
+}
+
+#pager li {
+	float: left;
+	width: 50%;
+}
+
+#pager li:first-child a {
+	margin-right: 1px;
+}
+
+#pager a {
+	display: block;
+	padding: 16px;
+	border: 1px solid black;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	-ms-border-radius: 8px;
+	-o-border-radius: 8px;
+	border-radius: 8px;
+	background: #2d2d2d;
+	background: -webkit-linear-gradient(top, #2d2d2d, #111111);
+	background: -moz-linear-gradient(top, #2d2d2d, #111111);
+	background: -ms-linear-gradient(top, #2d2d2d, #111111);
+	background: linear-gradient(to bottom, #2d2d2d, #111111);
+	-webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 6px rgba(0, 0, 0, 0.45);
+	-moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 6px rgba(0, 0, 0, 0.45);
+	box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 6px rgba(0, 0, 0, 0.45);
+	font-family: impact, arial, sans-serif;
+	font-size: 1.286em;
+	color: white;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	text-align: center;
+	text-shadow: -1px -1px 0 black;
+}
+
+#pager a:hover {
+	opacity: 0.9;
+}
+
+#pager a:active {
+	-webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 3px rgba(0, 0, 0, 0.35);
+	-moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 3px rgba(0, 0, 0, 0.35);
+	box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.4) inset, 0 0 8px rgba(255, 255, 255, 0.18) inset, 0 2px 3px rgba(0, 0, 0, 0.35);
+}
+
+#pager .prev:before {
+	margin-right: 8px;
+	content: "1";
+	font-family: "monolith", sans-serif;
+	font-size: 1em;
+	color: white;
+	vertical-align: middle;
+	speak: none;
+}
+
+#pager .next:after {
+	margin-left: 8px;
+	content: "0";
+	font-family: "monolith", sans-serif;
+	font-size: 1em;
+	color: white;
+	vertical-align: middle;
+	speak: none;
+}
+
+/*
+ blog
+---------------------------------------- */
+.blog {
+	overflow: hidden;
+	max-width: 960px;
+	margin: 0 auto;
+	margin-bottom: 32px;
+	min-height: 480px;
+}
+
+.blog-inner {
+	position: relative;
+	-webkit-transition: left ease-in 0.2s;
+	-moz-transition: left ease-in 0.2s;
+	-o-transition: left ease-in 0.2s;
+	transition: left ease-in 0.2s;
+}
+
+/* メインコンテンツ */
+.blog-main {
+	width: 100%;
+}
+
+.blog-main-inner {
+	margin-right: 248px;
+}
+
+/* サブコンテンツ */
+.blog-sub {
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 216px;
+}
+
+.blog-sub h3:before {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	margin-right: 8px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	background: #111111;
+	line-height: 40px;
+	text-align: center;
+	content: attr(data-icon);
+	font-family: "monolith", sans-serif;
+	font-size: 1.286em;
+	color: white;
+	vertical-align: baseline;
+	speak: none;
+}
+
+.blog-sub > ul > li {
+	margin-bottom: 32px;
+}
+
+/* カテゴリー, タグ */
+.blog-sub-category li {
+	width: 100%;
+}
+
+.blog-sub-category a {
+	display: block;
+	margin-bottom: 8px;
+	padding: 8px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+	background: #111111;
+	font-size: 0.786em;
+	color: #fff;
+	text-align: center;
+}
+
+.blog-sub-category a:hover {
+	opacity: 0.8;
+}
+
+.blog-sub-tag ul {
+	margin-right: -4px;
+}
+
+.blog-sub-tag li {
+	float: left;
+	width: 50%;
+}
+
+.blog-sub-tag a {
+	display: block;
+	margin-bottom: 8px;
+	margin-right: 4px;
+	padding: 8px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+	background: #111111;
+	font-size: 0.786em;
+	color: #fff;
+	text-align: center;
+}
+
+.blog-sub-tag a:hover {
+	opacity: 0.8;
+}
+
+/* 最新の投稿 */
+.blog-sub-recentposts a {
+	display: block;
+	margin-bottom: 8px;
+	padding: 8px;
+	border-right: 2px solid #f8de16;
+	-webkit-border-radius: 4px 0 0 4px;
+	-moz-border-radius: 4px 0 0 4px;
+	-ms-border-radius: 4px 0 0 4px;
+	-o-border-radius: 4px 0 0 4px;
+	border-radius: 4px 0 0 4px;
+	background: #fff;
+	font-weight: bold;
+	line-height: 1.5;
+	text-align: justify;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+.blog-sub-recentposts a:hover {
+	background: #f8de16;
+}
+
+/* 広告 */
+.blog-sub-add ul {
+	margin-right: -8px;
+}
+
+.blog-sub-add li {
+	float: left;
+	width: 50%;
+}
+
+.blog-sub-add a {
+	display: block;
+	height: 96px;
+	margin-bottom: 8px;
+	margin-right: 8px;
+	border: 1px solid #ccc;
+	background: #ddd;
+}
+
+/* サイトについて */
+.blog-sub-about a {
+	display: block;
+	margin-bottom: 8px;
+	padding: 8px;
+	border-right: 2px solid #f8de16;
+	-webkit-border-radius: 4px 0 0 4px;
+	-moz-border-radius: 4px 0 0 4px;
+	-ms-border-radius: 4px 0 0 4px;
+	-o-border-radius: 4px 0 0 4px;
+	border-radius: 4px 0 0 4px;
+	background: #fff;
+	font-weight: bold;
+	line-height: 1.5;
+}
+
+.blog-sub-about a:hover {
+	background: #f8de16;
+}
+
+/* コンタクト */
+/*
+ 記事
+---------------------------------------- */
+.post {
+	position: relative;
+	margin-bottom: 32px;
+}
+
+/* サムネイル */
+.post-thumb {
+	overflow: hidden;
+	width: auto;
+	margin-bottom: 32px;
+	border: 8px solid #dddddd;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.post-thumb img {
+	width: 100%;
+	height: auto;
+}
+
+/* メタ情報 */
+.post-meta {
+	margin: 0 0 32px;
+	font-size: 0.786em;
+	line-height: 1.8;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+.post-meta span:before {
+	margin-right: 4px;
+	content: attr(data-icon);
+	font-family: "monolith", sans-serif;
+	font-size: 1.286em;
+	color: #111111;
+	vertical-align: baseline;
+	speak: none;
+}
+
+.post-meta a {
+	border-bottom: 1px dashed #111111;
+	font-weight: bold;
+}
+
+.post-meta a:hover {
+	background: #f8de16;
+}
+
+.post-time,
+.post-tag {
+	float: left;
+	margin-right: 32px;
+}
+
+/* リード文 */
+.post-lead {
+	margin-bottom: 32px;
+	line-height: 1.8;
+	text-align: justify;
+}
+
+/* 見出し */
+.post-heading {
+	display: none;
+}
+
+/* 目次 */
+.post-toc {
+	margin-bottom: 32px;
+}
+
+.post-toc h2 {
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	background: #111111;
+	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	font-size: 1.286em;
+	color: #FFF;
+	text-align: center;
+	line-height: 64px;
+}
+
+.post-toc > ol {
+	margin-top: -16px;
+	margin-left: -32px;
+}
+
+.post-toc ol {
+	counter-reset: toc1;
+}
+
+.post-toc ol li {
+	padding: 16px 0 0 32px;
+	counter-increment: toc1;
+}
+
+.post-toc ol li:before {
+	content: counters(toc1, ".");
+	display: inline-block;
+	margin-right: 8px;
+	font-family: "DigitaldreamFatNarrowRegular", sans-serif;
+}
+
+.post-toc a {
+	border-bottom: 1px dashed #111111;
+	font-weight: bold;
+}
+
+.post-toc a:hover {
+	background: #f8de16;
+}
+
+/*
+ 記事本文
+---------------------------------------- */
+.post-body {
+	counter-reset: h2;
+}
+
+.post-body section {
+	padding-top: 32px;
+	border-top: 1px solid white;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0;
+	box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 0;
+}
+
+.post-body h2,
+.post-body h3,
+.post-body h4,
+.post-body h5 {
+	font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+.post-body h2 {
+	/* 記事本文内、使用可能要素 */
+	counter-reset: h3;
+	counter-increment: h2;
+	position: relative;
+	min-height: 53px;
+	margin-top: 11px;
+	margin-left: 80px;
+	line-height: 1.5;
+}
+
+.post-body h2:before {
+	content: counter(h2);
+	display: block;
+	position: absolute;
+	top: -11px;
+	left: -80px;
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	background: #000;
+	font-family: "DigitaldreamFatNarrowRegular", sans-serif;
+	font-size: 0.7143em;
+	color: #FFF;
+	text-align: center;
+	line-height: 64px;
+	vertical-align: middle;
+}
+
+.post-body h3 {
+	/* 記事本文内、使用可能要素 */
+	counter-increment: h3;
+}
+
+.post-body h3:before {
+	content: counter(h2) "." counter(h3);
+	display: inline-block;
+	margin-right: 8px;
+	padding: 4px;
+	text-align: center;
+	font-family: "DigitaldreamFatNarrowRegular", sans-serif;
+	vertical-align: middle;
+}
+
+.post-body h4,
+.post-body h5 {
+	/* 記事本文内、使用可能要素 */
+	font-weight: bold;
+}
+
+.post-body p,
+.post-body ul,
+.post-body ol,
+.post-body dl {
+	/* 記事本文内、使用可能要素 */
+	margin-bottom: 32px;
+	line-height: 1.8;
+	text-align: justify;
+}
+
+.post-body strong {
+	/* 記事本文内、使用可能要素 */
+	color: #b12b16;
+}
+
+.post-body a {
+	/* 記事本文内、使用可能要素 */
+	border-bottom: 1px dashed #111111;
+	font-weight: bold;
+}
+
+.post-body a:hover {
+	background: #f8de16;
+}
+
+.post-body img {
+	/* 記事本文内、使用可能要素 */
+	overflow: hidden;
+	width: 100%;
+	height: auto;
+	margin-bottom: 32px;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.post-body hr {
+	/* 記事本文内、使用可能要素 */
+	position: relative;
+	height: 2.286em;
+	margin: 32px 0;
+	border: none;
+}
+
+.post-body hr:before {
+	display: block;
+	position: relative;
+	width: 100%;
+	text-align: center;
+	content: "/";
+	font-family: "monolith", sans-serif;
+	font-size: 2.286em;
+	color: #111111;
+	vertical-align: baseline;
+	speak: none;
+	text-shadow: 1px 1px 0 #fff;
+}
+
+.post-body blockquote {
+	/* 記事本文内、使用可能要素 */
+	position: relative;
+	padding: 16px 32px 32px;
+}
+
+.post-body blockquote:before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "(";
+	font-family: "monolith", sans-serif;
+	font-size: 3.429em;
+	color: #111111;
+	vertical-align: baseline;
+	speak: none;
+	text-shadow: 5px 3px 0 #fff;
+}
+
+.post-body blockquote:after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	content: ")";
+	font-family: "monolith", sans-serif;
+	font-size: 3.429em;
+	color: #111111;
+	vertical-align: baseline;
+	speak: none;
+	text-shadow: 5px 3px 0 #fff;
+}
+
+.post-body blockquote p {
+	margin-bottom: 0;
+	padding: 16px;
+	background: #fff;
+}
+
+.post-body q {
+	/* 記事本文内、使用可能要素 */
+	position: relative;
+	padding: 0 18px;
+}
+
+.post-body q:before {
+	position: absolute;
+	top: -10px;
+	left: 4px;
+	content: "(";
+	font-family: "monolith", sans-serif;
+	font-size: 0.786em;
+	color: #111111;
+	vertical-align: baseline;
+	speak: none;
+	text-shadow: 1px 1px 0 #FFF;
+}
+
+.post-body q:after {
+	position: absolute;
+	top: -10px;
+	right: 4px;
+	content: ")";
+	font-family: "monolith", sans-serif;
+	font-size: 0.786em;
+	color: #111111;
+	vertical-align: baseline;
+	speak: none;
+	text-shadow: 1px 1px 0 #FFF;
+}
+
+.post-body .hl {
+	/* 記事本文内、使用可能クラス */
+	background: #f8de16;
+}
+
+.post-body .alert {
+	/* 記事本文内、使用可能クラス */
+	padding: 16px 32px;
+	border: 3px solid #b12b16;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	background: #b12b16;
+	-webkit-box-shadow: 1px 1px 0 white inset, -1px -1px 0 white inset;
+	-moz-box-shadow: 1px 1px 0 white inset, -1px -1px 0 white inset;
+	box-shadow: 1px 1px 0 white inset, -1px -1px 0 white inset;
+	color: #fff;
+}
+
+.post-body .memo {
+	/* 記事本文内、使用可能クラス */
+	padding: 16px 32px;
+	border: 3px solid #ccc;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	background: #fff;
+	-webkit-box-shadow: 1px 1px 0 #aaaaaa inset, -1px -1px 0 #bbbbbb inset;
+	-moz-box-shadow: 1px 1px 0 #aaaaaa inset, -1px -1px 0 #bbbbbb inset;
+	box-shadow: 1px 1px 0 #aaaaaa inset, -1px -1px 0 #bbbbbb inset;
+}
+
+.post-body .ps {
+	/* 記事本文内、使用可能クラス */
+	padding: 16px 32px;
+	border: 1px dotted #111111;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	background: #fff;
+}
+
+/* コメント */
+.post-comment {
+	margin-bottom: 32px;
+	padding: 8px;
+	background: #fff;
+}
+
+.post-comment img {
+	width: 100%;
+	height: auto;
+}
+
+/* ソーシャル */
+.post-socials {
+	margin-bottom: 32px;
+	padding: 8px;
+	background: #fff;
+}
+
+/*
+ メディアクエリ
+---------------------------------------- */
+@media only screen and (max-width: 959px){
+  .dummyHeading {
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+  .dummyHeading + p {
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+  .blog {
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+  .blog-main-inner {
+	margin-right: 0;
+}
+
+	/* サブコンテンツ */
+  .blog-sub {
+	display: none;
+	-webkit-overflow-scrolling: touch;
+	position: fixed;
+	top: 0;
+	right: 0;
+	height: 100%;
+	padding: 0 8px;
+	padding-right: 58px;
+	border-left: 1px solid rgba(255, 255, 255, 0.6);
+	background: #ddd;
+	background: rgba(221, 221, 221, 0.75);
+	-webkit-box-shadow: 1px 1px 1px #333333, 0 0 8px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 1px 1px 1px #333333, 0 0 8px rgba(0, 0, 0, 0.75);
+	box-shadow: 1px 1px 1px #333333, 0 0 8px rgba(0, 0, 0, 0.75);
+	z-index: 8888;
+}
+
+  .blog-sub > ul {
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+  .blog-sub .blog-sub-category {
+	margin-top: 32px;
+}
+
+  #btn-subMenu {
+	display: block;
+	z-index: 9999;
+}
+}
+@media only screen and (max-width: 767px){
+  #global-header {
+	margin-bottom: 0;
+}
+
+  .dummyHeading {
+	padding-left: 8px;
+	padding-right: 8px;
+	font-size: 1.286em;
+	font-weight: bold;
+}
+
+  .dummyHeading + p {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+  .blog {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+  .blog-main-inner {
+	margin-right: 0;
+}
+
+  .post .post-toc h2 {
+	width: 48px;
+	height: 48px;
+	font-size: 1em;
+	line-height: 48px;
+}
+
+  .post .post-body h2 {
+	min-height: 37px;
+	margin-left: 64px;
+	font-size: 1.286em;
+}
+
+  .post .post-body h2:before {
+	width: 48px;
+	height: 48px;
+	left: -64px;
+	line-height: 48px;
+}
+
+  .post .post-body h3 {
+	font-size: 1.143em;
+}
+
+  .post .more-link {
+	display: none;
+}
+}
+@media only screen and (max-width: 479px){
+  .dummyHeading:before {
+	left: auto;
+	right: 30px;
+	border-left: rgba(0, 0, 0, 0) 34px solid;
+	border-right: rgba(0, 0, 0, 0) 34px solid;
+	border-top: 74px solid rgba(0, 0, 0, 0.15);
+}
+
+  .dummyHeading:after {
+	left: auto;
+	right: 32px;
+	border-left: rgba(0, 0, 0, 0) 32px solid;
+	border-right: rgba(0, 0, 0, 0) 32px solid;
+	border-top: 72px solid #FFF;
+}
+
+  .post {
+	margin-bottom: 16px;
+}
+
+  .post-body {
+	margin-left: 0;
+}
+
+  .post-body blockquote {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+  .post-body blockquote:before {
+	font-size: 1.714em;
+}
+
+  .post-body blockquote:after {
+	font-size: 1.714em;
+}
+
+  .post-body blockquote p {
+	padding: 8px;
+	background: #FFF;
+}
+
+  .post-body .memo {
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+  .post-body .alert {
+	padding-left: 16px;
+	padding-right: 16px;
+}
+}
+/*
+ 機能
+---------------------------------------- */
+.blog .open {
+	display: block;
+}

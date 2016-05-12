@@ -1,0 +1,356 @@
+@charset "utf-8";
+
+// ========================================
+// FUNCTION
+//
+// calcNum
+// calcCol
+// ========================================
+
+// カラム幅を求める
+// @param {Number}  $count   カラム数
+// @param {Number}  $width   カラムの親の幅
+// @param {Boolean} $perFlag パーセンテージで返す
+// @return {Number} カラム幅
+@function calcCol(
+	$count  : 1,
+	$width  : 100%,
+	$perFlag: true
+) {
+	// 引数がパーセンテージ
+	@if unit($width) == "%" {
+		@return $width / $count;
+	}
+	// パーセンテージで返す
+	@if $perFlag {
+		@return percentage(($width / $count) / $width);
+		@return $width / $count;
+	}
+	// pxで返す
+	@else {
+		@debug($width / $count);
+		@return $width / $count;
+	}
+}
+
+
+// ========================================
+// MIXIN
+//
+// 1. レイアウト
+// widthQuery
+// contCenter
+// createColumn
+//
+// 2. デザイン
+// hairLine
+// linearGradient
+// setIcon
+// makeBtn
+// makeBtnFrame
+// setBtnLabel
+// textBorder
+// setLinkStyle
+// ========================================
+
+//----------------------------------------
+// 1. レイアウト
+//----------------------------------------
+
+// メディアクエリをつくる
+// @param {Number} $query 範囲を司るクエリ文字列
+// @param {Number} $width 閾値
+@mixin widthQuery($arg...) {
+	$query: nth($arg, 1);
+	$width: nth($arg, 2);
+	@media only screen and ($query: $width) {
+		@content;
+	}
+}
+
+
+// 中央寄せのコンテンツをつくる
+// @param {Number} $width    コンテンツの横幅
+// @param {Number} [$prefix] 範囲を司るプレフィックス
+@mixin contCenter($arg...) {
+	$width : null;
+	$prefix: null;
+	// プレフィックスあるか
+	@if type_of(nth($arg, 1)) == string {
+		$prefix: nth($arg, 1) + '-';
+		$width : nth($arg, 2);
+	}
+	@else {
+		$width: nth($arg, 1);
+	}
+	// スタイル
+	#{$prefix}width: $width;
+	margin: 0 auto;
+}
+
+
+// 未使用 - createColumn
+//
+// カラムをつくる
+// @param {Number}  width     カラムを入れる親要素の幅
+// @param {Number}  count     カラムの数
+// @param {Number}  gutter    カラム間の余白
+// @param {boolean} nthOfType 予めwidth内で余白分を調整する
+@mixin createColumn(
+	$count,
+	$width,
+	$gutter,
+	$nthOfType
+) {
+	$w : null !default;
+	$mL: null !default;
+	// width内で余白調整
+	@if $nthOfType {
+		$w : _calcColumnWidth($width, $count, $gutter);
+		$mL: percentage($gutter / $width);
+		&:nth-of-type(#{$count}n + 1) {
+			margin-left: 0;
+		}
+	}
+	@else {
+		$w: percentage(($width / $count) / $width);
+	}
+	// スタイル
+	width: $w;
+	margin-left: $mL;
+}
+@function _calcColumnWidth($width, $count, $gutter) {
+	$resWidth: ($width - ($gutter * ($count - 1))) / $count;
+	$resWidth: percentage($resWidth / $width);
+	@return $resWidth;
+}
+
+
+//----------------------------------------
+// 2. デザイン
+//----------------------------------------
+
+// ヘアラインをつくる
+// @param {String} direction <top><bottom> 方向
+// @param {Number} highLight ハイライトの濃さ
+// @param {Number} shadow    影の濃さ
+@mixin hairLine($arg...) {
+	// デフォルト値
+	$direction: bottom !default;
+	$highLight: .3 !default;
+	$shadow   : .2 !default;
+	// 最初の引数が方向指定か
+	@if type_of(nth($arg, 1)) != number {
+		$direction: nth($arg, 1);
+		$highLight: nth($arg, 2);
+		$shadow   : nth($arg, 3);
+	}
+	@else {
+		$highLight: nth($arg, 1);
+		$shadow   : nth($arg, 2);
+	}
+	// 指定
+	@if $direction == top {
+		border-#{$direction}: 1px solid rgba(255, 255, 255, $highLight);
+		@include box-shadow(rgba(0, 0, 0, $shadow) 0 -1px 0);
+	}
+	@else if $direction == bottom {
+		border-#{$direction}: 1px solid rgba(0, 0, 0, $shadow);
+		@include box-shadow(rgba(255, 255, 255, $highLight) 0 1px 0);
+	}
+	@else if $direction == left {
+		border-#{$direction}: 1px solid rgba(255, 255, 255, $highLight);
+		@include box-shadow(rgba(0, 0, 0, $shadow) -1px 0 0);
+	}
+	@else if $direction == right {
+		border-#{$direction}: 1px solid rgba(0, 0, 0, $shadow);
+		@include box-shadow(rgba(255, 255, 255, $highLight) 1px 0 0);
+	}
+}
+
+
+// 背景にグラデーションをかける IE9-非対応
+// @param {String} $direction   <top><bottom><left><right> 方向
+// @param {Number} $colorTop    始まりの色
+// @param {Number} $colorBottom 終わりの色
+@mixin linearGradient($arg...) {
+	// デフォルト値
+	$direction   : top !default;
+	$colorTop    : #fff !default;
+	$colorBottom : #eee !default;
+	$dirToPattern: bottom !default;
+	// 最初の引数が方向指定か
+	@if type_of(nth($arg, 1)) == string {
+		$direction  : nth($arg, 1);
+		$colorTop   : nth($arg, 2);
+		$colorBottom: nth($arg, 3);
+	}
+	@else {
+		$colorTop   : nth($arg, 1);
+		$colorBottom: nth($arg, 2);
+	}
+	// to〜指定用
+	@if $direction == top {
+		$dirToPattern: bottom;
+	}
+	@else if $direction == bottom {
+		$dirToPattern: top;
+	}
+	@else if $direction == left {
+		$dirToPattern: right;
+	}
+	@else if $direction == right {
+		$dirToPattern: left;
+	}
+	// 指定
+	background: $colorTop;
+	background: -webkit-linear-gradient($direction, $colorTop, $colorBottom);
+	background:    -moz-linear-gradient($direction, $colorTop, $colorBottom);
+	background:     -ms-linear-gradient($direction, $colorTop, $colorBottom);
+	background:         linear-gradient(to $dirToPattern, $colorTop, $colorBottom);
+}
+
+
+// アイコンを表示する
+// @type {String} $data-icon
+// @type {String} $ff
+// @type {Number} $fz
+@mixin setIcon(
+	// 初期値
+	$data-icon: data-icon,
+	$ff: $iconFontFamily,
+	$fz: 2.571em,
+	$fc: $strongFontColor,
+	$va: baseline
+) {
+	// アイコンセッティング
+	@if $data-icon == data-icon {
+		$data-icon: attr($data-icon);
+	}
+	@else {
+		$data-icon: "#{$data-icon}";
+	}
+	// 出力
+	content: $data-icon;
+	font-family: $ff;
+	font-size: $fz;
+	color: $fc;
+	vertical-align: $va;
+	speak: none;
+}
+
+
+// ボタンスタイル
+// @type {Number} $pd   パディング
+// @type {Number} $rd   角丸
+// @type {Number} $bgcl 背景色
+// @type {Number} $op   ホバー時の透明度
+@mixin makeBtn(
+	// 初期値
+	$bgcl: $subBgColor,
+	$pd  : $baseSpaceM,
+	$rd  : $baseSpaceS,
+	$op  : 0.9
+) {
+	// 出力
+	display: block;
+	padding: $pd;
+	border: 1px solid darken($bgcl, 10%);
+	@include border-radius($rd);
+	@include linearGradient(top, lighten($bgcl, 11%), $bgcl);
+	@include box-shadow(
+		1px 1px 0 rgba(#fff, 0.4) inset,
+		0 0 8px rgba(#fff, 0.18) inset,
+		0 2px 6px rgba(#000, 0.45)
+	);
+	&:hover {
+		opacity: $op;
+	}
+	&:active {
+		@include box-shadow(
+			1px 1px 0 rgba(#fff, 0.4) inset,
+			0 0 8px rgba(#fff, 0.18) inset,
+			0 2px 3px rgba(#000, 0.35)
+		);
+	}
+}
+
+
+// ボタンの装飾フレーム
+// @type {Number} $pd パディング
+// @type {Mix}    $bd ボーダー
+// @type {Number} $rs 角丸
+// @type {Mix}    $gd 影
+@mixin makeBtnFrame(
+	$pd: $baseSpaceM,
+	$bd: 1px solid #ddd,
+	$rs: $baseSpaceM,
+	$gd: top darken(#fff, 12%) #fff
+) {
+	padding: $pd;
+	border: $bd;
+	@include border-radius($rs);
+	@include box-shadow(
+		0 1px 1px rgba(#000, 0.3) inset,
+		3px 3px 12px rgba(#000, 0.15) inset
+	);
+	@include linearGradient(nth($gd, 1), nth($gd, 2), nth($gd, 3));
+};
+
+
+// ボタンラベル
+// @type {Number} $fz
+// @type {Number} $co
+// @type {String} $ff
+// @type {String} $fw
+// @type {Number} $ls
+// @type {String} $ta
+// @type {Mix}    $ts
+@mixin setBtnLabel(
+	// 初期値
+	$fz   : 1.286em,
+	$color: #fff,
+	$ff   : $labelFontFamily,
+	$fw   : bold,
+	$ls   : 0.05em,
+	$ta   : center,
+	$ts   : -1px -1px 0 #000
+) {
+	// 出力
+	font-family: $ff;
+	font-size: $fz;
+	color: $color;
+	font-weight: $fw;
+	letter-spacing: $ls;
+	text-align: $ta;
+	text-shadow: $ts;
+}
+
+
+// 文字周りを縁取る
+// @param {String} color 縁取る色
+@mixin textBorder(
+	$color: #000
+) {
+	@include text-shadow(0 -1px 0 $color,1px 0 0 $color,0 1px 0 $color,-1px 0 0 $color);
+}
+
+
+// リンクの装飾
+// @type {Mix}    $bb
+// @type {Number} $bg
+// @type {Number} $bghv
+// @type {String} $fw
+@mixin setLinkStyle(
+	$bb  : 1px dashed $strongFontColor,
+	$bg  : null,
+	$bghv: lighten($keyBgColor, 0%),
+	$fw  : bold
+) {
+	border-bottom: $bb;
+	background: $bg;
+	font-weight: $fw;
+	&:hover {
+		background: $bghv;
+	}
+}

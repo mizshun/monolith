@@ -1,0 +1,120 @@
+@charset "utf-8";
+/* ----------------------------------------
+ CLEAR FIX
+---------------------------------------- */
+.opuses, .opuses ul {
+	zoom: 1;
+}
+
+.opuses:after, .opuses ul:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/* ----------------------------------------
+	ページ固有スタイル
+---------------------------------------- */
+/*
+ GENERAL STYLE
+---------------------------------------- */
+/* 大見出し設定 */
+.dummyHeading {
+	margin-bottom: 6px;
+	padding-top: 2px;
+	font-family: "DigitaldreamFatNarrowRegular", sans-serif;
+	font-size: 2em;
+	color: #111111;
+	letter-spacing: 0.1em;
+	text-align: center;
+}
+
+.dummyHeading + p {
+	margin-bottom: 32px;
+	font-size: 0.786em;
+	font-weight: bold;
+	text-align: center;
+	letter-spacing: 0.1em;
+}
+
+/*
+ opuses
+---------------------------------------- */
+#contents {
+	overflow: hidden;
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+.opuses h3 {
+	display: none;
+}
+
+.opuses ul {
+	margin-right: -32px;
+}
+
+.opuses li {
+	float: left;
+	width: 25%;
+}
+
+.opuses article {
+	margin-right: 32px;
+	margin-bottom: 32px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 1px 3px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.5) 0 1px 3px;
+	box-shadow: rgba(0, 0, 0, 0.5) 0 1px 3px;
+}
+
+.opuses article a {
+	display: block;
+	border: 8px solid #ddd;
+}
+
+.opuses article a:hover {
+	border-color: #f8de16;
+}
+
+.opuses article img {
+	width: 100%;
+	height: auto;
+}
+
+/*
+ メディアクエリ
+---------------------------------------- */
+@media only screen and (max-width: 959px){
+  #contents {
+	padding-left: 16px;
+	padding-right: 16px;
+}
+}
+@media only screen and (max-width: 767px){
+  #contents {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+  .opuses ul {
+	margin-right: -16px;
+}
+
+  .opuses li {
+	width: 50%;
+}
+
+  .opuses article {
+	margin-right: 16px;
+	margin-bottom: 16px;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px;
+	box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px;
+}
+}
+@media only screen and (max-width: 479px){
+  .opuses li {
+	float: none;
+	width: 100%;
+}
+}
